@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+        Attack();
     }
     public void Move()
     {
@@ -54,6 +55,14 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Space))
         {
             movement.isLongJump = false;
+        }
+    }
+
+    public void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            anim.SetTrigger("Attack");
         }
     }
 }
