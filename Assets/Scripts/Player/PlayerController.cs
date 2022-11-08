@@ -6,8 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerStat movement;
     private Animator anim;
+
+    private bool IsDash;
+    private bool below;
+    [SerializeField] private LayerMask layer;
+
+    TrailRenderer trailRenderer;
+    [SerializeField] private EdgeCollider2D dashCollider;
     private void Start()
     {
+        trailRenderer = GetComponent<TrailRenderer>();
         anim = GetComponent<Animator>();
     }
     private void Awake()
@@ -18,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
+        Dash();
         Attack();
     }
     public void Move()
@@ -42,7 +51,11 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        RaycastHit2D belowHit = Physics2D.Raycast(transform.position, Vector2.down, 2, layer);
+        if (belowHit.collider) below = true; else below = false;
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && below)
         {
             movement.Jump();
         }
@@ -58,11 +71,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Dash()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            StartCoroutine("co_Dash");
+        }
+
+        if (IsDash)
+        {
+            movement.defaultSpeed = movement.DashSpeed;
+        }
+        else
+            movement.defaultSpeed = movement.Speed;
+
+    }
     public void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Attack");
         }
     }
+    #region ÄÚ·çÆ¾
+    IEnumerator co_Dash()
+    {
+        IsDash = true;
+        trailRenderer.enabled = true;
+
+        dashCollider.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        IsDash = false;
+        trailRenderer.enabled = false;
+        dashCollider.enabled = false;
+    }
+    #endregion
 }

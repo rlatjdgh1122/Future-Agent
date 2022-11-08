@@ -41,6 +41,11 @@ public class StatManager : MonoBehaviour
         //PlayerPrefs.DeleteAll();
         CurrentStat = PlayerPrefs.GetInt("Stat", Stat);
 
+        
+    }
+
+    private void Update()
+    {
         SpeedCurrentValue = PlayerPrefs.GetInt("Speed", 0);
         DamageCurrentValue = PlayerPrefs.GetInt("Damage", 0);
         CreticalPrecentageValue = PlayerPrefs.GetInt("CreticalPercentage", 0);
@@ -52,10 +57,7 @@ public class StatManager : MonoBehaviour
         CreticalPrecentage_Stat.value = CreticalPrecentageValue;
         CreticalDamage_Stat.value = CreticalDamageValue;
         SkillCoolTime_Stat.value = SkillCoolTimeValue;
-    }
 
-    private void Update()
-    {
         StatTxt.text = "Stat : " + CurrentStat;
     }
     public void UpSpeed()
