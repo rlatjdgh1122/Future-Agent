@@ -5,17 +5,24 @@ using UnityEngine.Events;
 
 public class PlayerSkillController : MonoBehaviour
 {
-    public UnityAction unityAction;
-    SkillMethod skillMethod = new SkillMethod();
-    private void Awake()
-    {
-        unityAction += skillMethod.Print;
-    }
+    public UnityEvent[] unityAction = new UnityEvent[4];
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            unityAction.Invoke();
+            unityAction[0]?.Invoke();   
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            unityAction[1]?.Invoke();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            unityAction[2]?.Invoke();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            unityAction[3]?.Invoke();
         }
     }
 }

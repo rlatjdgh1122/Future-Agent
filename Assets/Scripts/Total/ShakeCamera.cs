@@ -5,27 +5,15 @@ using UnityEngine;
 
 public class ShakeCamera : MonoBehaviour
 {
-    private float shakeTime;
-    private float shakeIntensity;
-    private static ShakeCamera instance;
-    public static ShakeCamera Instance => instance;
-    public ShakeCamera()
-    {
-        instance = this;
-    }
-    public void OnShakeCamera(float shakeTime = 1.0f, float shakeIntensity = 0.1f)
-    {
-        this.shakeTime = shakeTime;
-        this.shakeIntensity = shakeIntensity;
+    public static new Animator camera;
+    private static Animator C => camera;
 
-        StopCoroutine("Shake");
-        StartCoroutine("Shake");
-    }
-    
-    /*private IEnumerator Shake()
+    private void Start()
     {
-        Vector3 startPosition = transform.position;
-
-        
-    }*/
+        camera = GetComponent<Animator>();
+    }
+    public void Shake()
+    {
+        camera.SetTrigger("Shake");
+    }
 }

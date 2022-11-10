@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerStat movement;
-    private Animator anim;
+    public static Animator anim;
 
     private bool IsDash;
     private bool below;
@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 
     TrailRenderer trailRenderer;
     [SerializeField] private EdgeCollider2D dashCollider;
+
+    [Header("Skill")]
+    public bool Skill_SlashAttack = false;
     private void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -88,9 +91,15 @@ public class PlayerController : MonoBehaviour
     }
     public void Attack()
     {
+
         if (Input.GetMouseButtonDown(0))
         {
-            anim.SetTrigger("Attack");
+            if (Skill_SlashAttack)
+            {
+                anim.SetTrigger("Slash");
+            }
+            else
+                anim.SetTrigger("Attack");
         }
     }
     #region ÄÚ·çÆ¾

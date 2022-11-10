@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using GlobalName;
 using System;
-using DG.Tweening;  
 
 public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
@@ -26,16 +25,13 @@ public class Health : MonoBehaviour
         if (Hp > 0)
         {
             //맞음 에니메이션 
-            //밀림
-            Camera.main.DOShakePosition(0.1f,1f);
-            Debug.Log("데미지 입음");
+            ShakeCamera.camera.SetTrigger("Shake");
         }
         else if (Hp <= 0)
         {
             //죽음 애니메이션
             //움직임 멈춤
-            Debug.Log("죽음");
-            Camera.main.DOShakePosition(0.1f,1f);
+            ShakeCamera.camera.SetTrigger("Shake");
         }
         return Hp;
     }
@@ -48,9 +44,10 @@ public class Health : MonoBehaviour
         {
             //맞음 에니메이션 
             //밀림
+            ShakeCamera.camera.SetTrigger("Shake");
             Debug.Log("데미지 입음");
         }
-        else if(Hp <= 0)
+        else if (Hp <= 0)
         {
             //죽음 애니메이션
             //움직임 멈춤

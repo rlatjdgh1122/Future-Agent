@@ -20,6 +20,9 @@ public class SkillManager : MonoBehaviour
     string Choose_Name;
     bool isChoice;
 
+    [SerializeField] PlayerSkillController PlayerSkillController;
+    [SerializeField] SkillMethod skillMethod;
+
     private void Start()
     {
         Choice_button.interactable = false;
@@ -58,15 +61,64 @@ public class SkillManager : MonoBehaviour
 
             ChoiceScript.Clear();
         }
-
+        ResetSkillMethod();
         buttons.ForEach(p => p.interactable = true); // ¶÷´Ù½Ä
     }
 
     public void Choice_Skill()
     {
+
         //GameObject player = Instantiate(Resources.Load("Player"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        SetSkillMethod();
         SkillgameObject.SetActive(false);
 
+    }
+    public void SetSkillMethod()
+    {
+        try  //try, catch
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                {
+                    string name = ChoiceScript[i];
+                    switch (name) 
+                    {
+                        case "a":
+                            PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill1);
+                            break;
+                        case "b":
+                            PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill2);
+                            break;
+                        case "c":
+                            PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill3);
+                            break;
+                        case "d":
+                            PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill4);
+                            break;
+                        case "e":
+                            PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill5);
+                            break;
+                        case "f":
+                            PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill6);
+                            break;
+                    }
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        
+    }
+    public void ResetSkillMethod()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            {
+                PlayerSkillController.unityAction[i].RemoveAllListeners();
+            }
+        }
     }
     public void SetItem(Image choose_sprite)
     {
