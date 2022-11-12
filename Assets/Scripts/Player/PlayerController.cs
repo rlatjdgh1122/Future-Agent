@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
 
     TrailRenderer trailRenderer;
     [SerializeField] private EdgeCollider2D dashCollider;
+    [SerializeField] private ShakeCamera SettingCamera;
 
     [Header("Skill")]
-    public bool Skill_SlashAttack = false;
+    public bool Skil2_HeavyAttack = false;
     private void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -94,13 +95,21 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (Skill_SlashAttack)
+            if (Skil2_HeavyAttack)
             {
-                anim.SetTrigger("Slash");
+                anim.SetTrigger("HeavyAttack");
             }
             else
                 anim.SetTrigger("Attack");
         }
+    }
+    public void ZoomTrue()
+    {
+        SettingCamera.ZoomActive = true;
+    }
+    public void ZoomFalse()
+    {
+        SettingCamera.ZoomActive = false;
     }
     #region ÄÚ·çÆ¾
     IEnumerator co_Dash()
@@ -110,8 +119,10 @@ public class PlayerController : MonoBehaviour
 
         dashCollider.enabled = true;
         yield return new WaitForSeconds(0.1f);
+
         IsDash = false;
         trailRenderer.enabled = false;
+
         dashCollider.enabled = false;
     }
     #endregion

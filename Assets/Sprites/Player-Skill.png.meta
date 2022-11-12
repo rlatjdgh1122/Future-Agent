@@ -117,15 +117,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player-Skill_0
+      name: Player-Skill_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 2304
         y: 0
         width: 576
         height: 384
       alignment: 9
-      pivot: {x: 0.3, y: 0.1}
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,15 +138,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_1
+      name: Player-Skill_9
       rect:
         serializedVersion: 2
-        x: 576
+        x: 5184
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,15 +159,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_2
+      name: Player-Skill_8
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 4608
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,15 +180,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_3
+      name: Player-Skill_0
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 0
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,15 +201,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_4
+      name: Player-Skill_5
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 2880
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,15 +222,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_5
+      name: Player-Skill_6
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 3456
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,15 +243,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_6
+      name: Player-Skill_1
       rect:
         serializedVersion: 2
-        x: 3456
+        x: 580
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,15 +264,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_7
+      name: Player-Skill_3
       rect:
         serializedVersion: 2
-        x: 4032
+        x: 1728
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,15 +285,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_8
+      name: Player-Skill_7
       rect:
         serializedVersion: 2
-        x: 4608
+        x: 4032
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -306,15 +306,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player-Skill_9
+      name: Player-Skill_2
       rect:
         serializedVersion: 2
-        x: 5184
+        x: 1152
         y: 0
         width: 576
         height: 384
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,15 +338,15 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Player-Skill_4: -261298196
-      Player-Skill_9: 65163332
-      Player-Skill_8: 550388804
-      Player-Skill_0: -433136271
+      Player-Skill_9: 1975811198
+      Player-Skill_8: -1533713191
+      Player-Skill_0: -1206889800
       Player-Skill_5: 55366391
-      Player-Skill_6: 1975811198
-      Player-Skill_1: -1533713191
-      Player-Skill_3: -1206889800
-      Player-Skill_7: 819368248
-      Player-Skill_2: -1816364365
+      Player-Skill_6: 550388804
+      Player-Skill_1: 65163332
+      Player-Skill_3: -433136271
+      Player-Skill_7: -1816364365
+      Player-Skill_2: 819368248
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

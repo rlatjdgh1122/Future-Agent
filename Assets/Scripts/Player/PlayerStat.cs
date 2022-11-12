@@ -15,7 +15,7 @@ public class PlayerStat : MonoBehaviour
     public float DashDamage;
 
     private float jumpForce = 8;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     [HideInInspector]
     public bool isLongJump = false;
 
@@ -48,7 +48,6 @@ public class PlayerStat : MonoBehaviour
         {
             rb.gravityScale = 2.5f;
             edgeCollider.offset = new Vector2(0, 1.5f);
-
         }
 
 

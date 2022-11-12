@@ -5,45 +5,46 @@ using UnityEngine.Events;
 
 public class SkillMethod : MonoBehaviour
 {
-
     PlayerController playerController;
+    [Header("CoolTime")]
+    public float Slash_CastTime = 10;
     #region 호출할 스킬 메서드
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
     }
-    public void Skill1() //기본 공격이 참격으로 바뀜
+    public void Skill1()//참격을 날림
     {
-        StartCoroutine("Slash");
-      
+
+        PlayerController.anim.SetTrigger("Slash");
     }
-    public void Skill2()
+    public void Skill2() //강력한 heavyAttack을 사용함
     {
-        Debug.Log("2");
+        StartCoroutine("Heavy_Attack");
     }
-    public void Skill3()
+    public void Skill3() //대쉬 쿨타임이 사라짐 
     {
         Debug.Log("3");
     }
-    public void Skill4()
+    public void Skill4() //근처 적을 죽이는 물체를 날림
     {
         Debug.Log("4");
     }
-    public void Skill5()
+    public void Skill5() //모든 공격력이 상승됨 몸이 빨개짐
     {
         Debug.Log("5");
     }
-    public void Skill6()
+    public void Skill6() //체력을 풀피로 채워줌
     {
         Debug.Log("6");
     }
     #endregion
     #region 코루틴
-    IEnumerator Slash()
+    IEnumerator Heavy_Attack()
     {
-        playerController.Skill_SlashAttack = true;
-        yield return new WaitForSeconds(5);
-        playerController.Skill_SlashAttack = false;
+        playerController.Skil2_HeavyAttack = true;
+        yield return new WaitForSeconds(Slash_CastTime);
+        playerController.Skil2_HeavyAttack = false;
     }
     #endregion
 }
