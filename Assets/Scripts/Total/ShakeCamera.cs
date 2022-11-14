@@ -12,6 +12,7 @@ public class ShakeCamera : MonoBehaviour
     public  bool ZoomActive;
     public Vector3[] target;
     public float Speed;
+
     private void Start()
     {
         camera = GetComponent<Animator>();
@@ -33,6 +34,5 @@ public class ShakeCamera : MonoBehaviour
             Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 5, 0.3f);
             Cam.transform.position = Vector3.Lerp(Cam.transform.position, target[0], 0.3f);
         }
-
     }
 }

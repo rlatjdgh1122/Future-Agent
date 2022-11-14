@@ -15,8 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private EdgeCollider2D dashCollider;
     [SerializeField] private ShakeCamera SettingCamera;
 
+    [SerializeField] private GameObject HeavyAttackArea;
+
     [Header("Skill")]
     public bool Skil2_HeavyAttack = false;
+    public bool IsRotationStop = false;
     private void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -35,23 +38,25 @@ public class PlayerController : MonoBehaviour
     }
     public void Move()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        movement.Move(x);
-        if (x > 0)
+        if (!IsRotationStop)
         {
-            transform.localScale = new Vector3(1, 1, 1);
-            anim.SetBool("Run", true);
+            float x = Input.GetAxisRaw("Horizontal");
+            movement.Move(x);
+            if (x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                anim.SetBool("Run", true);
+            }
+
+            else if (x < 0)
+            {
+                anim.SetBool("Run", true);
+                transform.localScale = new Vector3(-1, 1, 1);
+
+            }
+            else
+                anim.SetBool("Run", false);
         }
-
-        else if (x < 0)
-        {
-            anim.SetBool("Run", true);
-            transform.localScale = new Vector3(-1, 1, 1);
-
-        }
-
-        else
-            anim.SetBool("Run", false);
     }
     public void Jump()
     {
@@ -100,17 +105,34 @@ public class PlayerController : MonoBehaviour
                 anim.SetTrigger("HeavyAttack");
             }
             else
+            {
                 anim.SetTrigger("Attack");
+            }
         }
+    }
+    #region HeavyAttack 이벤트 함수
+    public void Start_HeavyAttack()
+    {
+        ShakeCamera.camera.SetTrigger("HeavyAttackCamera");
+        HeavyAttackArea.SetActive(true);
+    }
+    public void End_HeavyAttack()
+    {
+        HeavyAttackArea.SetActive(false);
     }
     public void ZoomTrue()
     {
         SettingCamera.ZoomActive = true;
+        movement.isStopMove = true;
+        IsRotationStop = true;
     }
     public void ZoomFalse()
     {
         SettingCamera.ZoomActive = false;
+        movement.isStopMove = false;
+        IsRotationStop = false;
     }
+    #endregion 
     #region 코루틴
     IEnumerator co_Dash()
     {

@@ -6,6 +6,13 @@ using UnityEngine.Events;
 public class SkillMethod : MonoBehaviour
 {
     PlayerController playerController;
+
+
+    [SerializeField] GameObject slash;
+    [SerializeField] Transform SlashRotation;
+    [SerializeField] Transform Pos;
+    Vector3 dir;
+
     [Header("CoolTime")]
     public float Slash_CastTime = 10;
     #region 호출할 스킬 메서드
@@ -13,9 +20,14 @@ public class SkillMethod : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
     }
+    private void Update()
+    {
+        dir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - SlashRotation.position;
+        float z = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        SlashRotation.rotation = Quaternion.Euler(0, 0, z);
+    }
     public void Skill1()//참격을 날림
     {
-
         PlayerController.anim.SetTrigger("Slash");
     }
     public void Skill2() //강력한 heavyAttack을 사용함
@@ -39,6 +51,15 @@ public class SkillMethod : MonoBehaviour
         Debug.Log("6");
     }
     #endregion
+    public void Slash()
+    {
+        GameObject Slash = Instantiate(slash,Pos.position,SlashRotation.rotation);
+        SlashDestory(Slash);
+    }
+    public void SlashDestory(GameObject a)
+    {
+        Destroy(a, 1);
+    }
     #region 코루틴
     IEnumerator Heavy_Attack()
     {

@@ -10,12 +10,13 @@ public class PlayerStat : MonoBehaviour
     public float DashSpeed;
     [SerializeField] public float defaultSpeed;
 
+    public bool isStopMove = false;
 
     public float Hp;
     public float DashDamage;
 
     private float jumpForce = 8;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     [HideInInspector]
     public bool isLongJump = false;
 
@@ -40,7 +41,7 @@ public class PlayerStat : MonoBehaviour
             rb.gravityScale = 1;
             edgeCollider.offset = new Vector2(0, 0.5f);
         }
-        else if(rb.velocity.y == 0)
+        else if (rb.velocity.y == 0)
         {
             edgeCollider.offset = new Vector2(0, 0);
         }
@@ -55,7 +56,9 @@ public class PlayerStat : MonoBehaviour
     }
     public void Move(float x)
     {
-        rb.velocity = new Vector2(x * defaultSpeed, rb.velocity.y);
+        if (!isStopMove)
+            rb.velocity = new Vector2(x * defaultSpeed, rb.velocity.y);
+        else { rb.velocity = new Vector2(0, 0); }
     }
     public void Jump()
     {
