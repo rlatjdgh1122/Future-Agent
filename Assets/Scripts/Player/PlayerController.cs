@@ -17,9 +17,17 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject HeavyAttackArea;
 
+    private bool HeavyAttackDelay = true;
+    private float HeavyAttackDelayTime = 0;
     [Header("Skill")]
     public bool Skil2_HeavyAttack = false;
     public bool IsRotationStop = false;
+
+
+    public float DefaultDashCoolTime = 3;
+    public bool SkillDash = false;
+    private bool IsCanDash = true;
+    private float DashTime = 0;
     private void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
@@ -35,6 +43,30 @@ public class PlayerController : MonoBehaviour
         Jump();
         Dash();
         Attack();
+
+        if (!IsCanDash)
+        {
+            if (!SkillDash)
+            {
+                DashTime += Time.deltaTime;
+                if (DashTime > DefaultDashCoolTime)
+                {
+                    DashTime = 0;
+                    IsCanDash = true;
+                }
+            }
+            else IsCanDash = true;
+        }
+
+        if (!HeavyAttackDelay)
+        {
+            HeavyAttackDelayTime += Time.deltaTime;
+            if(HeavyAttackDelayTime > 1.3f)
+            {
+                HeavyAttackDelayTime = 0;
+                HeavyAttackDelay = true;
+            }
+        }
     }
     public void Move()
     {
@@ -82,9 +114,10 @@ public class PlayerController : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && IsCanDash)
         {
             StartCoroutine("co_Dash");
+            IsCanDash = false;
         }
 
         if (IsDash)
@@ -102,7 +135,11 @@ public class PlayerController : MonoBehaviour
         {
             if (Skil2_HeavyAttack)
             {
-                anim.SetTrigger("HeavyAttack");
+                if (HeavyAttackDelay)
+                {
+                    anim.SetTrigger("HeavyAttack");
+                    HeavyAttackDelay = false;
+                }
             }
             else
             {
