@@ -8,6 +8,7 @@ public class SkillManager : MonoBehaviour
 {
     public Image[] ui_images;
     public Image[] PlayGame_UI;
+    public Color PlayerGame_UIColor;
 
     public List<Item> items = new List<Item>();
     public List<Button> buttons = new List<Button>();
@@ -58,10 +59,12 @@ public class SkillManager : MonoBehaviour
         {
             ui_images[i].sprite = null;
             PlayGame_UI[i].sprite = null;
+            PlayGame_UI[i].color = PlayerGame_UIColor;
 
             ChoiceScript.Clear();
         }
         ResetSkillMethod();
+        ResetSkillCoolTime();
         buttons.ForEach(p => p.interactable = true); // ¶÷´Ù½Ä
     }
 
@@ -85,21 +88,27 @@ public class SkillManager : MonoBehaviour
                     {
                         case "a":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill1);
+                            PlayerSkillController.coolTimes[i].Skill_CoolTime = PlayerSkillController.SettingCoolTimes[0].SetCoolTime;
                             break;
                         case "b":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill2);
+                            PlayerSkillController.coolTimes[i].Skill_CoolTime = PlayerSkillController.SettingCoolTimes[1].SetCoolTime;
                             break;
                         case "c":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill3);
+                            PlayerSkillController.coolTimes[i].Skill_CoolTime = PlayerSkillController.SettingCoolTimes[2].SetCoolTime;
                             break;
                         case "d":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill4);
+                            PlayerSkillController.coolTimes[i].Skill_CoolTime = PlayerSkillController.SettingCoolTimes[3].SetCoolTime;
                             break;
                         case "e":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill5);
+                            PlayerSkillController.coolTimes[i].Skill_CoolTime = PlayerSkillController.SettingCoolTimes[4].SetCoolTime;
                             break;
                         case "f":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill6);
+                            PlayerSkillController.coolTimes[i].Skill_CoolTime = PlayerSkillController.SettingCoolTimes[5].SetCoolTime;
                             break;
                     }
                 }
@@ -118,6 +127,15 @@ public class SkillManager : MonoBehaviour
             {
                 PlayerSkillController.unityAction[i].RemoveAllListeners();
             }
+        }
+    }
+    public void ResetSkillCoolTime()
+    {
+        for(int i =0; i < 4; i++)
+        {
+            PlayerSkillController.coolTimes[i].Skill_CoolTime = 0;
+            PlayerSkillController.coolTimes[i].Skill_Time = 0;
+            PlayerSkillController.coolTimes[i].Skill_Can = false;
         }
     }
     public void SetItem(Image choose_sprite)

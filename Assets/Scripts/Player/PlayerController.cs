@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
     #region HeavyAttack 이벤트 함수
     public void Start_HeavyAttack()
     {
-        ShakeCamera.camera.SetTrigger("HeavyAttackCamera");
+        ShakeCamera.Instance.Shake(5, 0.4f);
         HeavyAttackArea.SetActive(true);
     }
     public void End_HeavyAttack()
@@ -159,13 +159,13 @@ public class PlayerController : MonoBehaviour
     }
     public void ZoomTrue()
     {
-        SettingCamera.ZoomActive = true;
+        ShakeCamera.Instance.ZoomActive = true;
         movement.isStopMove = true;
         IsRotationStop = true;
     }
     public void ZoomFalse()
     {
-        SettingCamera.ZoomActive = false;
+        ShakeCamera.Instance.ZoomActive = false;
         movement.isStopMove = false;
         IsRotationStop = false;
     }

@@ -25,13 +25,12 @@ public class Health : MonoBehaviour
         if (Hp > 0)
         {
             //맞음 에니메이션 
-            ShakeCamera.camera.SetTrigger("Shake");
+            ShakeCamera.Instance.Shake(3, 0.2f);
         }
         else if (Hp <= 0)
         {
             //죽음 애니메이션
             //움직임 멈춤
-            ShakeCamera.camera.SetTrigger("Shake");
         }
         return Hp;
     }
@@ -44,7 +43,8 @@ public class Health : MonoBehaviour
         {
             //맞음 에니메이션 
             //밀림
-            ShakeCamera.camera.SetTrigger("Shake");
+            ShakeCamera.Instance.Shake(3, 0.2f);
+
             Debug.Log("데미지 입음");
         }
         else if (Hp <= 0)

@@ -36,12 +36,10 @@ public class StatManager : MonoBehaviour
     [SerializeField] private Slider CreticalDamage_Stat;
     private int CreticalDamageValue;
     private int CreticalDamageTotalStat;
-    private void Start()
+    private void Awake()
     {
         //PlayerPrefs.DeleteAll();
         CurrentStat = PlayerPrefs.GetInt("Stat", Stat);
-
-        
     }
 
     private void Update()

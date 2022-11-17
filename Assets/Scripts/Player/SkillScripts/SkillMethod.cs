@@ -14,10 +14,13 @@ public class SkillMethod : MonoBehaviour
     [SerializeField] Transform Pos;
     Vector3 dir;
 
-    [Header("CoolTime")]
+
+    [Header("시전 시간")]
     public float Slash_CastTime = 10;
     public float Cancel_DashCoolTime = 3;
+
     #region 호출할 스킬 메서드
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
@@ -38,9 +41,9 @@ public class SkillMethod : MonoBehaviour
     }
     public void Skill3() //대쉬 쿨타임이 사라짐 
     {
-        StartCoroutine("CancelDashCoolTime");
+        StartCoroutine("CancelDashCastTime");
     }
-    public void Skill4() //근처 적을 죽이는 물체를 날림
+    public void Skill4() //근처 적을 죽이는 공를 날림
     {
         GameObject a = Instantiate(ball, transform.position, Quaternion.identity);
     }
@@ -70,7 +73,7 @@ public class SkillMethod : MonoBehaviour
         playerController.SkillDash = false;
     }
 
-    IEnumerator CancelDashCoolTime()
+    IEnumerator CancelDashCastTime()
     {
         playerController.Skil2_HeavyAttack = true;
         yield return new WaitForSeconds(Slash_CastTime);

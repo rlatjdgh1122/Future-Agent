@@ -29,7 +29,7 @@ public class SkillBall : MonoBehaviour
     }
     private void OnDisable()
     {
-        Targets = GameObject.Find("GameObject");
+        Targets = GameObject.Find("EnemySpwaner");
         if (Targets.transform.childCount != 0) 
         {
             for(int i = 0; i < Targets.transform.childCount; i++)
@@ -43,8 +43,6 @@ public class SkillBall : MonoBehaviour
     private void Update()
     {
         KillMove();
-
-
     }
     public void Check()
     {

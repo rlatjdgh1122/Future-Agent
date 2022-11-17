@@ -4,7 +4,7 @@ using UnityEngine;
 using GlobalName;
    
 
-public class Attack : MonoBehaviour
+public class Attack : StatClass
 {
     [SerializeField]  GameObject AttackArea;
 

@@ -6,33 +6,43 @@ using DG.Tweening;
 
 public class ShakeCamera : MonoBehaviour
 {
-    public static new Animator camera;
+    public static ShakeCamera Instance { get; private set; }
+    public float shakeTimer;
 
-    public Camera Cam;
-    public  bool ZoomActive;
-    public Vector3[] target;
-    public float Speed;
-
+    public bool ZoomActive;
+    public float ZoomSpeed;
+    CinemachineVirtualCamera cinemachineVirtual;
     private void Start()
     {
-        camera = GetComponent<Animator>();
-        Cam = Camera.main;
+        Instance = this;
+        cinemachineVirtual = GetComponent<CinemachineVirtualCamera>();
     }
-    public void Shake()
+    public void Shake(float intensity, float time)
     {
-        camera.SetTrigger("Shake");
+        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
+       cinemachineVirtual.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = intensity;
+        shakeTimer = time;
     }
-    private void LateUpdate()
+    private void Update()
     {
+        if (shakeTimer > 0)
+        {
+            shakeTimer -= Time.deltaTime;
+            if (shakeTimer <= 0f)
+            {
+                CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
+                   cinemachineVirtual.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+                cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = 0f;
+            }
+        }
         if (ZoomActive)
-        {
-            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 3, Speed);
-            Cam.transform.position = Vector3.Lerp(Cam.transform.position, target[1], Speed);
-        }
-        else
-        {
-            Cam.orthographicSize = Mathf.Lerp(Cam.orthographicSize, 5, 0.3f);
-            Cam.transform.position = Vector3.Lerp(Cam.transform.position, target[0], 0.3f);
-        }
+            cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtual.m_Lens.OrthographicSize, 4, ZoomSpeed);
+
+        if (!ZoomActive)
+            cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtual.m_Lens.OrthographicSize, 5, ZoomSpeed);
     }
+
 }
