@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     TrailRenderer trailRenderer;
     [SerializeField] private EdgeCollider2D dashCollider;
-    [SerializeField] private ShakeCamera SettingCamera;
 
     [SerializeField] private GameObject HeavyAttackArea;
 
@@ -122,10 +121,10 @@ public class PlayerController : MonoBehaviour
 
         if (IsDash)
         {
-            movement.defaultSpeed = movement.DashSpeed;
+            movement.defaultSpeed = StatManager.DashSpeedP;
         }
         else
-            movement.defaultSpeed = movement.Speed;
+            movement.defaultSpeed = StatManager.SpeedP;
 
     }
     public void Attack()

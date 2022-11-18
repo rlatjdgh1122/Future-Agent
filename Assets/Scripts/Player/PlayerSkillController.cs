@@ -7,6 +7,8 @@ using UnityEngine.Events;
 
 public class PlayerSkillController : MonoBehaviour
 {
+
+    public static PlayerSkillController Instance;
     public UnityEvent[] unityAction = new UnityEvent[4];
     public Image[] blind = new Image[4];
 
@@ -14,6 +16,10 @@ public class PlayerSkillController : MonoBehaviour
     public List<SettingCoolTime> SettingCoolTimes = new List<SettingCoolTime>();
     [Header("스킬 쿨타임 확인")]
     public List<CoolTime> coolTimes = new List<CoolTime>();
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && coolTimes[0].Skill_Can)
