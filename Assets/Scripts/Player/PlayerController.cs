@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
 
     TrailRenderer trailRenderer;
     [SerializeField] private EdgeCollider2D dashCollider;
-
     [SerializeField] private GameObject HeavyAttackArea;
 
+    [SerializeField] private Transform DashPos;
+    [SerializeField] private Vector2 DashSize;
+
+    [SerializeField] private Collider2D[] collider2Ds;
     private bool HeavyAttackDelay = true;
     private float HeavyAttackDelayTime = 0;
     [Header("Skill")]
@@ -26,11 +29,13 @@ public class PlayerController : MonoBehaviour
     public float DefaultDashCoolTime = 3;
     public bool SkillDash = false;
     private bool IsCanDash = true;
+
     private float DashTime = 0;
     private void Start()
     {
         trailRenderer = GetComponent<TrailRenderer>();
         anim = GetComponent<Animator>();
+        StartCoroutine("ee");
     }
     private void Awake()
     {
@@ -42,6 +47,17 @@ public class PlayerController : MonoBehaviour
         Jump();
         Dash();
         Attack();
+
+        RaycastHit2D belowHit = Physics2D.Raycast(transform.position, Vector2.down, 2, layer);
+        if (belowHit.collider) below = true; else below = false;
+
+        RaycastHit2D leftHit = Physics2D.Raycast(transform.position, Vector2.left, 1, layer);
+        if (leftHit.collider) IsCanDash = false;
+
+        RaycastHit2D rightHit = Physics2D.Raycast(transform.position, Vector2.right, 1, layer);
+        if (rightHit.collider) IsCanDash = false;
+
+
 
         if (!IsCanDash)
         {
@@ -60,7 +76,7 @@ public class PlayerController : MonoBehaviour
         if (!HeavyAttackDelay)
         {
             HeavyAttackDelayTime += Time.deltaTime;
-            if(HeavyAttackDelayTime > 1.3f)
+            if (HeavyAttackDelayTime > 1.3f)
             {
                 HeavyAttackDelayTime = 0;
                 HeavyAttackDelay = true;
@@ -91,8 +107,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
-        RaycastHit2D belowHit = Physics2D.Raycast(transform.position, Vector2.down, 2, layer);
-        if (belowHit.collider) below = true; else below = false;
+
 
 
         if (Input.GetKeyDown(KeyCode.Space) && below)
@@ -183,5 +198,28 @@ public class PlayerController : MonoBehaviour
 
         dashCollider.enabled = false;
     }
+
+    IEnumerator ee()
+    {
+        while (true)
+        {
+            collider2Ds = Physics2D.OverlapBoxAll(DashPos.position, DashSize, 0, layer);
+            //Physics2D.OverlapBox()
+            foreach (Collider2D collider in collider2Ds)
+            {
+                if (collider.tag == "Walk")
+                {
+                    IsCanDash = false;
+                }
+            }
+            yield return new WaitForSeconds(0.00001f);
+        }
+    }
     #endregion
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(DashPos.position, DashSize);
+    }
 }
+

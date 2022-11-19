@@ -21,7 +21,6 @@ public class AttackArea : MonoBehaviour
         {
             health = collision.GetComponent<Health>();
             health.Damaged(StatManager.DamageP, health.EnemyHp);
-
         }
     }
     

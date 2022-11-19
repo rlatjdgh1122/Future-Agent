@@ -8,6 +8,11 @@ public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
 {
     public static Health Instance;
+
+    SpriteRenderer sr;
+    Color halfA = Color.red;
+    Color fullA = new Color(1, 1, 1, 1);
+
     [SerializeField] new Name name;
     [Header("플레이어일 때")]
     public float playerHp = 0;
@@ -18,7 +23,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
+        sr = GetComponent<SpriteRenderer>();
     }
     #region 체력을 관리해주는 메서드
     public void Damaged(float damaged, Hit hit)
@@ -34,6 +39,7 @@ public class Health : MonoBehaviour
         {
             //맞음 에니메이션 
             ShakeCamera.Instance.Shake(3, 0.2f);
+            StartCoroutine("alphablink");
             Debug.Log("데미지 입음");
         }
         else if (enemyHp <= 0)
@@ -41,6 +47,7 @@ public class Health : MonoBehaviour
             //죽음 애니메이션
             //움직임 멈춤
             ShakeCamera.Instance.Shake(3, 0.2f);
+            Destroy(gameObject);
         }
         return enemyHp;
     }
@@ -54,6 +61,7 @@ public class Health : MonoBehaviour
             //맞음 에니메이션 
             //밀림
             ShakeCamera.Instance.Shake(3, 0.2f);
+            StartCoroutine("alphablink");
             Debug.Log("데미지 입음");
         }
         else if (playerHp <= 0)
@@ -74,6 +82,18 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
     #endregion
+    private IEnumerator alphablink() //맞으면 색이 변함
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            sr.color = halfA;
+            yield return new WaitForSeconds(0.1f);
+            sr.color = fullA;
+            StopCoroutine("alphablink"); 
+
+        }
+    }
     void Lamda(Action action) //람다 메서드
     {
         action();

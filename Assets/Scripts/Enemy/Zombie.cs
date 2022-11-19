@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zomie : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
 
     public float moveSpeed = 1.5f;
@@ -25,7 +25,7 @@ public class Zomie : MonoBehaviour
     void Start()
     {
         isMove = true;
-        StartCoroutine(Attack());
+        StartCoroutine(AttackPos());
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
@@ -53,12 +53,10 @@ public class Zomie : MonoBehaviour
         if (player.transform.position.x < transform.position.x && isMove)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            //anim.SetTrigger("Run");
         }
         else if (player.transform.position.x > transform.position.x && isMove)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            //anim.SetTrigger("Run");
         }
 
         if (!isCanAttacking)
@@ -71,7 +69,7 @@ public class Zomie : MonoBehaviour
             }
         }
     }
-    public IEnumerator Attack()
+    public IEnumerator AttackPos()
     {
         while (true)
         {
