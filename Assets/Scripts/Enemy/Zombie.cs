@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+public  class Zombie : MonoBehaviour
 {
 
     public float moveSpeed = 1.5f;
-    public float isCanAttackTime;
-
+    public float AttackDelay = 3;
 
     public Transform boxpos;
     public Vector2 boxSize;
@@ -19,9 +18,8 @@ public class Zombie : MonoBehaviour
     Transform player;
     Rigidbody2D rigid;
 
-    bool isCanAttacking;
-    float isCanAttackTimer = 0;
     bool isMove;
+
     void Start()
     {
         isMove = true;
@@ -58,16 +56,6 @@ public class Zombie : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-
-        if (!isCanAttacking)
-        {
-            isCanAttackTimer += Time.deltaTime;
-            if (isCanAttackTimer >= isCanAttackTime)
-            {
-                isCanAttackTimer = 0;
-                isCanAttacking = true;
-            }
-        }
     }
     public IEnumerator AttackPos()
     {
@@ -81,7 +69,7 @@ public class Zombie : MonoBehaviour
                 {
                     isMove = false;
                     anim.SetTrigger("Attack");
-                    yield return new WaitForSeconds(3);
+                    yield return new WaitForSeconds(AttackDelay);
                     isMove = true;
 
                 }
