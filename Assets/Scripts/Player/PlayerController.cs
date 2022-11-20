@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Slider slider;
+    public float DefaultDashCoolTime = 3;
     private PlayerStat movement;
     public static Animator anim;
 
@@ -26,13 +29,14 @@ public class PlayerController : MonoBehaviour
     public bool IsRotationStop = false;
 
 
-    public float DefaultDashCoolTime = 3;
     public bool SkillDash = false;
     private bool IsCanDash = true;
 
     private float DashTime = 0;
     private void Start()
     {
+        slider.maxValue = DefaultDashCoolTime;
+
         trailRenderer = GetComponent<TrailRenderer>();
         anim = GetComponent<Animator>();
         StartCoroutine("ee");
@@ -63,11 +67,16 @@ public class PlayerController : MonoBehaviour
         {
             if (!SkillDash)
             {
+                slider.value = 0;
+
                 DashTime += Time.deltaTime;
+                slider.value = DashTime;
+
                 if (DashTime > DefaultDashCoolTime)
                 {
                     DashTime = 0;
                     IsCanDash = true;
+
                 }
             }
             else IsCanDash = true;
@@ -107,9 +116,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump()
     {
-
-
-
         if (Input.GetKeyDown(KeyCode.Space) && below)
         {
             movement.Jump();
@@ -137,9 +143,14 @@ public class PlayerController : MonoBehaviour
         if (IsDash)
         {
             movement.defaultSpeed = StatManager.DashSpeedP;
+            Physics2D.IgnoreLayerCollision(7,8, true);
         }
         else
+        {
             movement.defaultSpeed = StatManager.SpeedP;
+
+            Physics2D.IgnoreLayerCollision(7,8, false);
+        }
 
     }
     public void Attack()

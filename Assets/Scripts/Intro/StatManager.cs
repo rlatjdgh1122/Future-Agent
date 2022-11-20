@@ -16,7 +16,7 @@ public class StatManager : MonoBehaviour
 
     public static float damage = 10; //기본데미지
     public static float speed = 7; //기본 스피드
-    public static float Dashspeed = 30; //기본 대시스피드
+    public static float Dashspeed = 50; //기본 대시스피드
     public static float DamageP { get { return damage; } set { damage = value; } }
     public static float SpeedP { get { return speed; } set { speed = value; } }
     public static float DashSpeedP { get { return Dashspeed; } set { Dashspeed = value; } }
