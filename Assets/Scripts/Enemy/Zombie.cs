@@ -5,7 +5,10 @@ using UnityEngine;
 public  class Zombie : MonoBehaviour
 {
 
-    public float moveSpeed = 1.5f;
+    public float MinSpeed = 1.5f;
+    public float MaxSpeed = 1.5f;
+    private float moveSpeed;
+
     public float AttackDelay = 3;
 
     public Transform boxpos;
@@ -30,7 +33,10 @@ public  class Zombie : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
 
     }
-
+    private void Start()
+    {
+        moveSpeed = Random.Range(MinSpeed, MaxSpeed);
+    }
     void Update()
     {
         Move();
