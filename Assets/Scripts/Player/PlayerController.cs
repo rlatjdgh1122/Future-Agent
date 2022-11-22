@@ -55,11 +55,11 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D belowHit = Physics2D.Raycast(transform.position, Vector2.down, 2, layer);
         if (belowHit.collider) below = true; else below = false;
 
-        RaycastHit2D leftHit = Physics2D.Raycast(transform.position, Vector2.left, 1, layer);
+      /*  RaycastHit2D leftHit = Physics2D.Raycast(transform.position, Vector2.left, 1, layer);
         if (leftHit.collider) IsCanDash = false;
 
         RaycastHit2D rightHit = Physics2D.Raycast(transform.position, Vector2.right, 1, layer);
-        if (rightHit.collider) IsCanDash = false;
+        if (rightHit.collider) IsCanDash = false;*/
 
 
 

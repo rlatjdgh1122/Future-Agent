@@ -20,7 +20,7 @@ public  class Zombie : MonoBehaviour
 
     bool isMove;
 
-    void Start()
+    void OnEnable()
     {
         isMove = true;
         StartCoroutine(AttackPos());

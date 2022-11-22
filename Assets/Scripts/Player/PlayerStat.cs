@@ -11,7 +11,6 @@ public class PlayerStat : MonoBehaviour
 
     public bool isStopMove = false;
 
-    public float Hp;
     public float DashDamage;
 
     private Rigidbody2D rb;

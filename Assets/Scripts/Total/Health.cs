@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using GlobalName;
 using System;
+using UnityEngine.UI;
 
 public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
 {
+    public Slider PlayerHpSlider;
     public static Health Instance;
 
     SpriteRenderer sr;
@@ -20,11 +22,21 @@ public class Health : MonoBehaviour
     public float enemyHp = 0;
     Hit Hit;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
         sr = GetComponent<SpriteRenderer>();
+        SliderHpSetting();
     }
+    public void SliderHpSetting()
+    {
+        if (name == Name.Player)
+        {
+            PlayerHpSlider.maxValue = playerHp;
+            PlayerHpSlider.value = playerHp;
+        }
+    }
+
     #region 체력을 관리해주는 메서드
     public void Damaged(float damaged, Hit hit)
     {
@@ -56,6 +68,7 @@ public class Health : MonoBehaviour
         if (name == Name.Enemy)
             damaged = 0; //
         playerHp -= damaged;
+        PlayerHpSlider.value = playerHp;
         if (playerHp > 0)
         {
             //맞음 에니메이션 
@@ -90,7 +103,7 @@ public class Health : MonoBehaviour
             sr.color = halfA;
             yield return new WaitForSeconds(0.1f);
             sr.color = fullA;
-            StopCoroutine("alphablink"); 
+            StopCoroutine("alphablink");
 
         }
     }

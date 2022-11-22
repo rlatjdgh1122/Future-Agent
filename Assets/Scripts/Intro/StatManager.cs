@@ -71,7 +71,10 @@ public class StatManager : MonoBehaviour
             if (i == 1) //스탯배열의 1번째면
                 damage += PlusDamage;
             if (i == 2)
+            {
                 health.playerHp += PlusPlayerHp;
+                health.SliderHpSetting();
+            }
             if (i == 3)
                 PlayerSkillController.Instance.SettingCoolTimes.ForEach(p => p.SetCoolTime = p.SetCoolTime - MinusCoolTime);
             if (i == 4)
@@ -98,9 +101,12 @@ public class StatManager : MonoBehaviour
             if (i == 1)
                 damage -= PlusDamage;
             if (i == 2)
+            {
                 health.playerHp -= PlusPlayerHp;
+                health.SliderHpSetting();
+            }
             if (i == 3)
-                PlayerSkillController.Instance.SettingCoolTimes.ForEach(p => p.SetCoolTime = p.SetCoolTime + MinusCoolTime);
+                PlayerSkillController.Instance.SettingCoolTimes.ForEach(p => p.SetCoolTime += MinusCoolTime);
             if (i == 4)
                 Dashspeed -= PlusDashSpeed;
             StatSetting(i);
