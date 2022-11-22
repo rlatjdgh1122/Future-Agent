@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
 {
     public Slider PlayerHpSlider;
     public static Health Instance;
+    public GameObject hudDamageText;
+    public Transform hudPos;
 
     SpriteRenderer sr;
     Color halfA = Color.red;
@@ -49,6 +51,9 @@ public class Health : MonoBehaviour
         enemyHp -= damaged;
         if (enemyHp > 0)
         {
+            GameObject enemyHudText = Instantiate(hudDamageText);
+            enemyHudText.transform.position = hudPos.position;
+            enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
             //맞음 에니메이션 
             ShakeCamera.Instance.Shake(3, 0.2f);
             StartCoroutine("alphablink");
@@ -71,6 +76,9 @@ public class Health : MonoBehaviour
         PlayerHpSlider.value = playerHp;
         if (playerHp > 0)
         {
+            GameObject playerHudText = Instantiate(hudDamageText);
+            playerHudText.transform.position = hudPos.position;
+            playerHudText.GetComponent<DamageText>().damage = (int)damaged;
             //맞음 에니메이션 
             //밀림
             ShakeCamera.Instance.Shake(3, 0.2f);
