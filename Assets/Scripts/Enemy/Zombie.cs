@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Enemy;
 
-public class Zombie : MonoBehaviour, IEnemyInterface
+public class Zombie : MonoBehaviour
 {
     public float MinSpeed;
     public float MaxSpeed;
@@ -35,12 +35,11 @@ public class Zombie : MonoBehaviour, IEnemyInterface
     }
     private void Start()
     {
-        moveSpeed = Random.Range(MinSpeed, MaxSpeed);
-        // RandomMove(MinSpeed, MaxSpeed, out moveSpeed);
+        RandomSpeed();
     }
-    public void RandomMove(float a, float b, out float Move)
+    public void RandomSpeed()
     {
-        Move = Random.Range(a, b);
+        moveSpeed = Random.Range(MinSpeed, MaxSpeed);
     }
     void Update()
     {
@@ -58,7 +57,8 @@ public class Zombie : MonoBehaviour, IEnemyInterface
         //Vector2 direction = ;
 
         if (isMove)
-            transform.Translate(new Vector2(player.position.x - transform.position.x, 0) * moveSpeed * Time.deltaTime);
+            transform.Translate(rigid.velocity = new Vector3(player.position.x - transform.position.x, 0, 0) * moveSpeed * Time.deltaTime);
+        //transform.Translate(new Vector2(player.position.x - transform.position.x, 0) * moveSpeed * Time.deltaTime);
 
         if (player.transform.position.x < transform.position.x && isMove)
         {
@@ -97,8 +97,4 @@ public class Zombie : MonoBehaviour, IEnemyInterface
         Gizmos.DrawWireCube(boxpos.position, boxSize);
     }
 
-    public void MoveRandom(float a, float b, float Move)
-    {
-        throw new System.NotImplementedException();
-    }
 }

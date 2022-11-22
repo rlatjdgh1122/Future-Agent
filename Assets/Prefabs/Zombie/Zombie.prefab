@@ -234,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373d6b49e12189e4b9208b3badc9914f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinSpeed: 0.5
-  MaxSpeed: 1.3
+  MinSpeed: 0.6
+  MaxSpeed: 1.2
+  moveSpeed: 0
   AttackDelay: 3
   boxpos: {fileID: 5655730091100529069}
   boxSize: {x: 3, y: 3}
