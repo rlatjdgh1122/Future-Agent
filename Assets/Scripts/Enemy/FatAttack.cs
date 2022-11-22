@@ -5,21 +5,24 @@ using UnityEngine;
 public class FatAttack : MonoBehaviour
 {
     public float Damage = 10;
-    public float Speed = 10;
-
-    Vector2 dir;
+    public float speed = 10;
     Health health;
+
+    Rigidbody2D rigid;
 
     private void Start()
     {
         float a = GameObject.Find("Fat Zombie").transform.localScale.x;
-        if (a == 1) { transform.localScale = new Vector3(1, 1, 1); dir = Vector3.right; }
-        if (a == -1) { transform.localScale = new Vector3(-1, 1, 1); dir = Vector3.left; }
+        if (a == 1) { transform.rotation = Quaternion.Euler(0,0,20); }
+        if (a == -1) { transform.rotation = Quaternion.Euler(0, 0, -200); }
+
+        rigid = GetComponent<Rigidbody2D>();
+        rigid.velocity = transform.right * speed;
+
     }
     void Update()
     {
-        transform.Translate(dir * Speed * Time.deltaTime);
-
+        transform.right = rigid.velocity;
         Destroy(gameObject, 2);
     }
     private void OnTriggerEnter2D(Collider2D collision)

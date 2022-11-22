@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class RangedZombie : Zombie
 {
-    public GameObject RangedAttack;
-    public Transform pos;
+    public GameObject PrefabAttack;
+    public Transform PrefabPos;
+
+    private void Start()
+    {
+        PrefabPos = transform.GetChild(1);
+
+    }
     public void Attack()
     {
-            GameObject a = Instantiate(RangedAttack, pos.position, Quaternion.identity);
+        GameObject a = Instantiate(PrefabAttack, PrefabPos.position, Quaternion.identity);
     }
 }
