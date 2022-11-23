@@ -18,9 +18,9 @@ public class Health : MonoBehaviour
     Color fullA = new Color(1, 1, 1, 1);
 
     [SerializeField] new Name name;
-    [Header("ÇÃ·¹ÀÌ¾îÀÏ ¶§")]
+    [Header("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½")]
     public float playerHp = 0;
-    [Header("ÀûÀÏ ¶§")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½")]
     public float enemyHp = 0;
     Hit Hit;
 
@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    #region Ã¼·ÂÀ» °ü¸®ÇØÁÖ´Â ¸Þ¼­µå
+    #region Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void Damaged(float damaged, Hit hit)
     {
         hit(damaged);
@@ -54,15 +54,14 @@ public class Health : MonoBehaviour
             GameObject enemyHudText = Instantiate(hudDamageText);
             enemyHudText.transform.position = hudPos.position;
             enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
-            //¸ÂÀ½ ¿¡´Ï¸ÞÀÌ¼Ç 
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ 
             ShakeCamera.Instance.Shake(3, 0.2f);
             StartCoroutine("alphablink");
-            Debug.Log("µ¥¹ÌÁö ÀÔÀ½");
         }
         else if (enemyHp <= 0)
         {
-            //Á×À½ ¾Ö´Ï¸ÞÀÌ¼Ç
-            //¿òÁ÷ÀÓ ¸ØÃã
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             ShakeCamera.Instance.Shake(3, 0.2f);
             Destroy(gameObject);
         }
@@ -79,31 +78,31 @@ public class Health : MonoBehaviour
             GameObject playerHudText = Instantiate(hudDamageText);
             playerHudText.transform.position = hudPos.position;
             playerHudText.GetComponent<DamageText>().damage = (int)damaged;
-            //¸ÂÀ½ ¿¡´Ï¸ÞÀÌ¼Ç 
-            //¹Ð¸²
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ 
+            //ï¿½Ð¸ï¿½
             ShakeCamera.Instance.Shake(3, 0.2f);
             StartCoroutine("alphablink");
-            Debug.Log("µ¥¹ÌÁö ÀÔÀ½");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
         else if (playerHp <= 0)
         {
-            //Á×À½ ¾Ö´Ï¸ÞÀÌ¼Ç
-            //¿òÁ÷ÀÓ ¸ØÃã
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             ShakeCamera.Instance.Shake(3, 0.2f);
-            Debug.Log("Á×À½");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         }
         return playerHp;
     }
 
     #endregion
 
-    #region Ã¼·Â °ü¸® ¸Þ¼­µå¿¡¼­ È£ÃâµÇ´Â ¸Þ¼­µå
+    #region Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½å¿¡ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void OnDieDestory()
     {
         Destroy(gameObject);
     }
     #endregion
-    private IEnumerator alphablink() //¸ÂÀ¸¸é »öÀÌ º¯ÇÔ
+    private IEnumerator alphablink() //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         while (true)
         {
@@ -115,7 +114,7 @@ public class Health : MonoBehaviour
 
         }
     }
-    void Lamda(Action action) //¶÷´Ù ¸Þ¼­µå
+    void Lamda(Action action) //ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     {
         action();
     }

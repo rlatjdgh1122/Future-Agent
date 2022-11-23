@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Collider2D[] collider2Ds;
     private bool HeavyAttackDelay = true;
     private float HeavyAttackDelayTime = 0;
+
+    Rigidbody2D rigid;
     [Header("Skill")]
     public bool Skil2_HeavyAttack = false;
     public bool IsRotationStop = false;
@@ -33,11 +35,15 @@ public class PlayerController : MonoBehaviour
     private bool IsCanDash = true;
 
     private float DashTime = 0;
+
+    public float _slopeAngle { get; private set; }
+
     private void Start()
     {
         slider.maxValue = DefaultDashCoolTime;
 
         trailRenderer = GetComponent<TrailRenderer>();
+        rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         StartCoroutine("ee");
     }
@@ -94,9 +100,17 @@ public class PlayerController : MonoBehaviour
     }
     public void Move()
     {
+
         if (!IsRotationStop)
         {
             float x = Input.GetAxisRaw("Horizontal");
+            if (x == 0)
+            {
+                rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+            }
+            else rigid.constraints = RigidbodyConstraints2D.FreezeRotation; 
+            //x = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * x);
+
             movement.Move(x);
             if (x > 0)
             {

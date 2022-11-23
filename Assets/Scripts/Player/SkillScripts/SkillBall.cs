@@ -7,38 +7,26 @@ public class SkillBall : MonoBehaviour
     public GameObject[] FoundObjects;
     public GameObject enemy;
 
-    public float Damage = 10;
-    public float speed;
     public string TagName;
     public float shortDis;
+    public float speed;
+    public float Damage;
 
-    Health health;
+
     Vector3 dir;
 
-    public Collider2D[] colliders;
+    Collider2D[] colliders;
     [SerializeField] private Vector2 boxSize;
     [SerializeField] private Transform boxPos;
     [SerializeField] private LayerMask layer;
 
-    GameObject Targets;
+    Health health;
+
+
     private void Awake()
     {
         boxPos = GameObject.Find("BallPos").transform;
         Check();
-
-    }
-    private void OnDisable()
-    {
-        Targets = GameObject.Find("EnemySpwaner");
-        if (Targets.transform.childCount != 0) 
-        {
-            for(int i = 0; i < Targets.transform.childCount; i++)
-            {
-                
-                Targets.transform.GetChild(i).gameObject.SetActive(true);
-                Targets.transform.GetChild(i).gameObject.tag = "Enemy";
-            }
-        }
     }
     private void Update()
     {
@@ -51,7 +39,6 @@ public class SkillBall : MonoBehaviour
         {
             if (collider.CompareTag("Enemy"))
                 collider.gameObject.tag = TagName;
-            else Destroy(gameObject);
         }
         EnemyKill();
     }
@@ -61,19 +48,25 @@ public class SkillBall : MonoBehaviour
     }
     public void KillMove()
     {
+        dir = transform.position - enemy.transform.position;
 
-        if (enemy != null)
-        {
-            dir = transform.position - enemy.transform.position;
+        if (FoundObjects != null)
             transform.position -= dir * speed * Time.deltaTime;
-        }
-        else { Destroy(gameObject); Debug.Log("적이 없습니다"); }
-
     }
     public void Enemy()
     {
         FoundObjects = GameObject.FindGameObjectsWithTag(TagName);
         shortDis = Vector3.Distance(gameObject.transform.position, enemy/*FoundObjects[0]*/.transform.position); // 첫번째를 기준으로 잡아주기 
+
+        try
+        {
+            enemy = FoundObjects[0]; // 첫번째를 먼저 
+        }
+        catch
+        {
+            Destroy(gameObject);
+        }
+
         foreach (GameObject found in FoundObjects)
         {
             float Distance = Vector3.Distance(gameObject.transform.position, found.transform.position);
@@ -83,26 +76,18 @@ public class SkillBall : MonoBehaviour
                 shortDis = Distance;
             }
         }
-
-        try
-        {
-            enemy = FoundObjects[0]; // 첫번째를 먼저
-            if (enemy == null) Destroy(gameObject);
-        }
-        catch { Destroy(gameObject); }
-
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(TagName))
+        if (collision.gameObject.CompareTag(TagName) && collision.GetComponent<Health>() != null)
         {
             health = collision.GetComponent<Health>();
             health.Damaged(Damage, health.EnemyHp);
-            collision.gameObject.SetActive(false);
+
+            collision.tag = "Enemy";
             Enemy();
         }
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

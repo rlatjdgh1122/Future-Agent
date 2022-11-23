@@ -5,11 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MoveScenes : MonoBehaviour
 {
-    public int nextSceneIndex;
-    public GameObject[] SceneChangeObj;
-    bool load;
+    //public int nextSceneIndex;
+    public GameObject SceneChangeObj;
 
     private void Start()
+    {
+      //  MoveScene(nextSceneIndex);
+    }
+    public void MoveScene(int i)
+    {
+        SceneManager.LoadScene(i);
+        DontDestroyOnLoad(SceneChangeObj);
+    }
+    /*private void Start()
     {
         SceneChange();
     }
@@ -34,5 +42,5 @@ public class MoveScenes : MonoBehaviour
         yield return null;
         SceneManager.UnloadScene(nextSceneIndex - 1);
 
-    }
+    }*/
 }
