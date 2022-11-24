@@ -9,10 +9,7 @@ public class RangedZombie : Zombie
 
     private void Start()
     {
-
-        PrefabPos = transform.GetChild(1);
         RandomSpeed();
-
     }
     public void Attack()
     {

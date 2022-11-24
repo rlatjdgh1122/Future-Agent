@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737408535646565157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.62, y: 0, z: 0}
+  m_LocalPosition: {x: 0.21, y: 0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,6 +272,7 @@ MonoBehaviour:
   MaxSpeed: 1.5
   moveSpeed: 0
   AttackDelay: 5
+  effectiveRange: 6
   boxpos: {fileID: 1737408536494625664}
   boxSize: {x: 15, y: 3}
   layer:
@@ -279,7 +280,7 @@ MonoBehaviour:
     m_Bits: 256
   collider2Ds: []
   PrefabAttack: {fileID: 5611120082248495831, guid: 1cae6886acf0a2b4da340d9a927c5e7b, type: 3}
-  PrefabPos: {fileID: 5611120082248495827, guid: 1cae6886acf0a2b4da340d9a927c5e7b, type: 3}
+  PrefabPos: {fileID: 1737408535646565156}
 --- !u!114 &1737408536023179525
 MonoBehaviour:
   m_ObjectHideFlags: 0

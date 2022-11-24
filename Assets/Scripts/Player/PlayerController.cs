@@ -61,11 +61,11 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D belowHit = Physics2D.Raycast(transform.position, Vector2.down, 2, layer);
         if (belowHit.collider) below = true; else below = false;
 
-      /*  RaycastHit2D leftHit = Physics2D.Raycast(transform.position, Vector2.left, 1, layer);
-        if (leftHit.collider) IsCanDash = false;
+        /*  RaycastHit2D leftHit = Physics2D.Raycast(transform.position, Vector2.left, 1, layer);
+          if (leftHit.collider) IsCanDash = false;
 
-        RaycastHit2D rightHit = Physics2D.Raycast(transform.position, Vector2.right, 1, layer);
-        if (rightHit.collider) IsCanDash = false;*/
+          RaycastHit2D rightHit = Physics2D.Raycast(transform.position, Vector2.right, 1, layer);
+          if (rightHit.collider) IsCanDash = false;*/
 
 
 
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
             {
                 rigid.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             }
-            else rigid.constraints = RigidbodyConstraints2D.FreezeRotation; 
+            else rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
             //x = -Mathf.Abs(Mathf.Tan(_slopeAngle * Mathf.Deg2Rad) * x);
 
             movement.Move(x);
@@ -157,13 +157,13 @@ public class PlayerController : MonoBehaviour
         if (IsDash)
         {
             movement.defaultSpeed = StatManager.DashSpeedP;
-            Physics2D.IgnoreLayerCollision(7,8, true);
+            Physics2D.IgnoreLayerCollision(7, 8, true);
         }
         else
         {
             movement.defaultSpeed = StatManager.SpeedP;
 
-            Physics2D.IgnoreLayerCollision(7,8, false);
+            Physics2D.IgnoreLayerCollision(7, 8, false);
         }
 
     }
@@ -177,11 +177,13 @@ public class PlayerController : MonoBehaviour
                 if (HeavyAttackDelay)
                 {
                     anim.SetTrigger("HeavyAttack");
+                    SoundManager.Instace.EffectPlay(2, 0);
                     HeavyAttackDelay = false;
                 }
             }
             else
             {
+                SoundManager.Instace.EffectPlay(0, 0);
                 anim.SetTrigger("Attack");
             }
         }

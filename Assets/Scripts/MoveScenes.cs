@@ -7,6 +7,7 @@ public class MoveScenes : MonoBehaviour
 {
     //public int nextSceneIndex;
     public GameObject SceneChangeObj;
+    public GameObject[] SetActivesgameObjects;
 
     private void Start()
     {
@@ -14,6 +15,10 @@ public class MoveScenes : MonoBehaviour
     }
     public void MoveScene(int i)
     {
+        for(int a = 0; a < SetActivesgameObjects.Length; a++)
+        {
+            SetActivesgameObjects[a].SetActive(false);
+        }
         SceneManager.LoadScene(i);
         DontDestroyOnLoad(SceneChangeObj);
     }

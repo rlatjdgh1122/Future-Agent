@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     public float moveSpeed;
 
     public float AttackDelay = 3;
+    public float effectiveRange;
 
     public Transform boxpos;
     public Vector2 boxSize;
@@ -22,6 +23,7 @@ public class Zombie : MonoBehaviour
     Rigidbody2D rigid;
 
     bool isMove;
+
 
     void OnEnable()
     {
@@ -55,8 +57,8 @@ public class Zombie : MonoBehaviour
     public void Move()
     {
         //Vector2 direction = ;
-
-        if (isMove)
+       float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
+        if (isMove && distance > effectiveRange)
             transform.Translate(rigid.velocity = new Vector3(player.position.x - transform.position.x, 0, 0) * moveSpeed * Time.deltaTime);
         //transform.Translate(new Vector2(player.position.x - transform.position.x, 0) * moveSpeed * Time.deltaTime);
 

@@ -358,6 +358,7 @@ MonoBehaviour:
   MaxSpeed: 1.2
   moveSpeed: 0
   AttackDelay: 3
+  effectiveRange: 1
   boxpos: {fileID: 3416838874592697141}
   boxSize: {x: 3, y: 3}
   layer:

@@ -46,6 +46,7 @@ public class SkillMethod : MonoBehaviour
     public void Skill4() //근처 적을 죽이는 공를 날림
     {
         GameObject a = Instantiate(ball, transform.position, Quaternion.identity);
+        SoundManager.Instace.EffectPlay(1, 0);
     }
     public void Skill5() //모든 공격력이 상승됨 몸이 빨개짐
     {
