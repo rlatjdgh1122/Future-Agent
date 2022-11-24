@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c7e6142c1a111234da5276c4aab70879
+guid: 5e9269ea0e31ea5459090d94b73e5882
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stage3_1_0
+      name: stage2_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02d9ca71ff697fb46ae60c058d4db223
-      internalID: -1390154711
+      spriteID: 2a98e945883377a40b380e39eaa5fbde
+      internalID: 1073884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_1
+      name: stage2_1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efc4694f61c5a6b42a8bd15ee89b0993
-      internalID: -979044636
+      spriteID: 96808b3e75062d44e96551055266ddb1
+      internalID: 1119861009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_2
+      name: stage2_1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 119a498453c671c44a90dce11d9a3ed6
-      internalID: 300340013
+      spriteID: c92a711effc020841a8d0386462f661b
+      internalID: -28608070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_3
+      name: stage2_1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16b4a56b51290c646b73b43617e85594
-      internalID: 1553488295
+      spriteID: 2a51f71f17edfee4ab7c547a15c27a9b
+      internalID: -1435652960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_4
+      name: stage2_1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,14 +203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41e44f05d5647fb448f95e80e3438758
-      internalID: -1096861133
+      spriteID: ebb048850fe0c2343a8b39115b501987
+      internalID: -2130767380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_5
+      name: stage2_1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -224,14 +224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d9ce8872505f234d9c5ef1412029c46
-      internalID: -801263315
+      spriteID: 61bb7af59f5dc144eb45d52ed0014f53
+      internalID: 154321996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_6
+      name: stage2_1_6
       rect:
         serializedVersion: 2
         x: 32
@@ -245,14 +245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a34a805811b0484ba473b58a063cbd0
-      internalID: -1997563049
+      spriteID: 002282ab437e93949adf33b4ca7d694e
+      internalID: 574304133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_7
+      name: stage2_1_7
       rect:
         serializedVersion: 2
         x: 64
@@ -266,14 +266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b290dd36112f8441be2078003e0fffb
-      internalID: 731867273
+      spriteID: 81083ae025440e5438af32ac939a0a27
+      internalID: -1761025324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_8
+      name: stage2_1_8
       rect:
         serializedVersion: 2
         x: 96
@@ -287,14 +287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f72a816d79a050241a864535ea95ab3f
-      internalID: 1809652255
+      spriteID: 10e8a55b2ae9bd048a4368281986eb08
+      internalID: 2082349534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_9
+      name: stage2_1_9
       rect:
         serializedVersion: 2
         x: 128
@@ -308,14 +308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 592b2dd7ecb2d2147a9ad54b3f90e0ef
-      internalID: -908688361
+      spriteID: a9e8bec7a6a2d554c97cfb94dc41923c
+      internalID: 1549084473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_10
+      name: stage2_1_10
       rect:
         serializedVersion: 2
         x: 0
@@ -329,14 +329,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be156115d0f5a384784e738c3ab3c71e
-      internalID: -929421958
+      spriteID: e262258d3b3adf248af2f089b7d16c15
+      internalID: 475477774
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_11
+      name: stage2_1_11
       rect:
         serializedVersion: 2
         x: 32
@@ -350,14 +350,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9659a8e204f23604abaee696e6c80b3f
-      internalID: -1650728383
+      spriteID: 5cc35300573146f4d8bed969c714100a
+      internalID: -1199593175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_12
+      name: stage2_1_12
       rect:
         serializedVersion: 2
         x: 64
@@ -371,14 +371,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c95f386074efc8d49bec43d88f3170d3
-      internalID: 2091316326
+      spriteID: f3abc28bb407576429e6daa554ebd050
+      internalID: -1536681273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_13
+      name: stage2_1_13
       rect:
         serializedVersion: 2
         x: 96
@@ -392,14 +392,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a58b2e60e60aff248ad69cb37a354f02
-      internalID: -1913861965
+      spriteID: f9825e01421b95e41b16a4402e515953
+      internalID: 1327900112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage3_1_14
+      name: stage2_1_14
       rect:
         serializedVersion: 2
         x: 128
@@ -413,8 +413,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 973aa8be848c3bd40ac2cb0bea3f03f9
-      internalID: -1692808389
+      spriteID: 61a4883023c523842a7f92f7449cd75b
+      internalID: -1728107198
       vertices: []
       indices: 
       edges: []
@@ -430,21 +430,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stage3_1_2: 300340013
-      stage3_1_12: 2091316326
-      stage3_1_3: 1553488295
-      stage3_1_5: -801263315
-      stage3_1_6: -1997563049
-      stage3_1_9: -908688361
-      stage3_1_8: 1809652255
-      stage3_1_10: -929421958
-      stage3_1_7: 731867273
-      stage3_1_4: -1096861133
-      stage3_1_13: -1913861965
-      stage3_1_14: -1692808389
-      stage3_1_1: -979044636
-      stage3_1_11: -1650728383
-      stage3_1_0: -1390154711
+      stage2_1_2: -28608070
+      stage2_1_9: 1549084473
+      stage2_1_10: 475477774
+      stage2_1_7: -1761025324
+      stage2_1_13: 1327900112
+      stage2_1_0: 1073884
+      stage2_1_12: -1536681273
+      stage2_1_4: -2130767380
+      stage2_1_5: 154321996
+      stage2_1_11: -1199593175
+      stage2_1_6: 574304133
+      stage2_1_8: 2082349534
+      stage2_1_3: -1435652960
+      stage2_1_1: 1119861009
+      stage2_1_14: -1728107198
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
