@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab7062ffa7ab50a409e26ca2133ee4d9
+guid: 6f86a849278beeb498681adf6fed62b1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -105,133 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stage1_0_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dbc07b3ca67f2541b12ab6a6b798786
-      internalID: -1823485243
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_0_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40e11812e615bdb46bd4ab90e1bf231c
-      internalID: -502933558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_0_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fb5b4a53e38c714eb1a3baa1d840846
-      internalID: 800708700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_0_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4f63499bf0b0d64ba791efa51f1d22c
-      internalID: -1937370481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_0_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ac2cfcb64dca6d4ca698fb9c30b9728
-      internalID: -1642569892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_0_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 96
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43bd5ac499b863f49aab518e5e9251ab
-      internalID: -2143069291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: stage1_0_6
+      name: stage2_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -239,24 +113,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -8}
-        - {x: -16, y: 16}
-        - {x: 16, y: 16}
-        - {x: 16, y: -8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2f1b7c1738477a4fbd50347a4609c1a
-      internalID: 874707168
+      spriteID: ad971ef051dfed24aa139ea8e78a3582
+      internalID: 590307395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_7
+      name: stage2_1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -264,24 +134,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -8}
-        - {x: -16, y: 16}
-        - {x: 16, y: 16}
-        - {x: 16, y: -8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ff3723dadf13e640bb2c30df18068a8
-      internalID: 585232982
+      spriteID: 50c388e9ce5c96f46a87ab7b0f51433b
+      internalID: 555998931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_8
+      name: stage2_1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -289,24 +155,62 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -8}
-        - {x: -16, y: 16}
-        - {x: 16, y: 16}
-        - {x: 16, y: -8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2b84582e3d3c9041be955b198448694
-      internalID: 696197286
+      spriteID: cb79fc2a921c1cb44b6b42f0a07d5c43
+      internalID: -1794068261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_9
+      name: stage2_1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85623d66879ec4e4997d5d6671e63b20
+      internalID: 78384978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_1_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bda6b378f7bf0429ac319747197720
+      internalID: 2090165205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -314,20 +218,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d9eb0ad7cea33e46a4b0604b7765db0
-      internalID: -988762862
+      spriteID: 8944ac81acc85504aaa2c14feaeb50e9
+      internalID: 216777550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_10
+      name: stage2_1_6
       rect:
         serializedVersion: 2
         x: 32
@@ -335,24 +239,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -16}
-        - {x: -16, y: 16}
-        - {x: 16, y: 0}
-        - {x: 16, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5134a0d77b7b90249911d8f9ba989488
-      internalID: 1529134624
+      spriteID: ae190312ef62b9641b14a3651a5c853d
+      internalID: -875160040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_11
+      name: stage2_1_7
       rect:
         serializedVersion: 2
         x: 64
@@ -360,23 +260,62 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -16}
-        - {x: -16, y: 0}
-        - {x: 16, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1868a954e30764749bba7c69d7c15d8e
-      internalID: -1980991573
+      spriteID: 7927a2e5506551f488e938070b388174
+      internalID: 1747921142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_12
+      name: stage2_1_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e1b2a31089c1149a342c84a5ab74e5
+      internalID: -1609456502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_1_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4276232fa775f48a698bfad3a6e320
+      internalID: 173084702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_1_10
       rect:
         serializedVersion: 2
         x: 0
@@ -384,23 +323,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -16}
-        - {x: 16, y: 0}
-        - {x: 16, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e390130ed92eb14fa4bbcbb292fca32
-      internalID: -813515574
+      spriteID: 84ab33f4171aeea43ab3e80812269acd
+      internalID: -311620657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_13
+      name: stage2_1_11
       rect:
         serializedVersion: 2
         x: 32
@@ -408,24 +344,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -16, y: -16}
-        - {x: -16, y: 0}
-        - {x: 16, y: 16}
-        - {x: 16, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3f6a000460330488411f7c18e9810b
-      internalID: -1894059937
+      spriteID: 1082310b303f2a545add2a4cdab7a64d
+      internalID: 71360858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: stage1_0_14
+      name: stage2_1_12
       rect:
         serializedVersion: 2
         x: 64
@@ -433,14 +365,56 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe209141b0997d4e81697a93a82f561
-      internalID: -614686922
+      spriteID: 7b87cb9b753976142a3db2fa7b9f63f6
+      internalID: -385766591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_1_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4e4bae547e2252418fdf59078e8f968
+      internalID: -1071740584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage2_1_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1586194e8abfd284fbfc13014d882831
+      internalID: -1383583774
       vertices: []
       indices: 
       edges: []
@@ -456,21 +430,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      stage1_0_0: -1823485243
-      stage1_0_13: -1894059937
-      stage1_0_5: -2143069291
-      stage1_0_3: -1937370481
-      stage1_0_11: -1980991573
-      stage1_0_4: -1642569892
-      stage1_0_10: 1529134624
-      stage1_0_14: -614686922
-      stage1_0_2: 800708700
-      stage1_0_6: 874707168
-      stage1_0_8: 696197286
-      stage1_0_1: -502933558
-      stage1_0_9: -988762862
-      stage1_0_7: 585232982
-      stage1_0_12: -813515574
+      stage2_1_2: -1794068261
+      stage2_1_9: 173084702
+      stage2_1_10: -311620657
+      stage2_1_7: 1747921142
+      stage2_1_13: -1071740584
+      stage2_1_0: 590307395
+      stage2_1_12: -385766591
+      stage2_1_4: 2090165205
+      stage2_1_5: 216777550
+      stage2_1_11: 71360858
+      stage2_1_6: -875160040
+      stage2_1_8: -1609456502
+      stage2_1_3: 78384978
+      stage2_1_1: 555998931
+      stage2_1_14: -1383583774
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
