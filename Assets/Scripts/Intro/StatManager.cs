@@ -33,7 +33,7 @@ public class StatManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
         CurrentStat = PlayerPrefs.GetInt("Stat", Stat);
         for (int i = 0; i < StatSaves.Count; i++)
             StatSetting(i);

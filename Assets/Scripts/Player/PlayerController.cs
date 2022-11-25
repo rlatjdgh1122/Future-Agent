@@ -170,7 +170,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Attack()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
             if (Skil2_HeavyAttack)
@@ -178,16 +177,19 @@ public class PlayerController : MonoBehaviour
                 if (HeavyAttackDelay)
                 {
                     anim.SetTrigger("HeavyAttack");
-                    SoundManager.Instace.EffectPlay(2, 0);
                     HeavyAttackDelay = false;
+                    SoundManager.Instace.EffectPlay(2, 0);
                 }
             }
             else
             {
-                SoundManager.Instace.EffectPlay(0, 0);
                 anim.SetTrigger("Attack");
             }
         }
+    }
+    public void AttackSound()
+    {
+        SoundManager.Instace.EffectPlay(0, 0);
     }
     #region HeavyAttack 이벤트 함수
     public void Start_HeavyAttack()

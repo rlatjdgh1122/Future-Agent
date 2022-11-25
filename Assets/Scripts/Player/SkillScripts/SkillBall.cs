@@ -48,10 +48,14 @@ public class SkillBall : MonoBehaviour
     }
     public void KillMove()
     {
-        dir = transform.position - enemy.transform.position;
+        try
+        {
+            dir = transform.position - enemy.transform.position;
 
-        if (FoundObjects != null)
             transform.position -= dir * speed * Time.deltaTime;
+
+        }
+        catch { Destroy(gameObject); }
     }
     public void Enemy()
     {
