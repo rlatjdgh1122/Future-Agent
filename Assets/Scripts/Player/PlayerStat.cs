@@ -5,17 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(TrailRenderer))]
 public class PlayerStat : MonoBehaviour
 {
+    public float jumpForce = 8;
     [Header("Stat")]
-    public float Speed;
-    public float DashSpeed;
     [SerializeField] public float defaultSpeed;
 
     public bool isStopMove = false;
 
-    public float Hp;
     public float DashDamage;
 
-    private float jumpForce = 8;
     private Rigidbody2D rb;
     [HideInInspector]
     public bool isLongJump = false;

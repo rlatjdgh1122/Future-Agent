@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Hit
   - Enemy
+  - Target
+  - Walk
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - Water
   - UI
   - Walk
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 

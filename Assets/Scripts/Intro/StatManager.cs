@@ -1,214 +1,125 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class StatManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI StatTxt;
+    public TextMeshProUGUI StatTxt;
+
     public GameObject StatPanel;
-    public int CurrentStat;
+    public int CurrentStat = 0;
     public int Stat;
     private int StatUp = 1;
 
-    [Header("SpeedStat")]
-    [SerializeField] private Slider Speed_Stat;
-    private int SpeedCurrentValue;
-    private int SpeedTotalStat;
+    public static float damage = 10; //기본데미지
+    public static float speed = 7; //기본 스피드
+    public static float Dashspeed = 50; //기본 대시스피드
+    public static float DamageP { get { return damage; } set { damage = value; } }
+    public static float SpeedP { get { return speed; } set { speed = value; } }
+    public static float DashSpeedP { get { return Dashspeed; } set { Dashspeed = value; } }
 
-    [Header("DamageStat")]
-    [SerializeField] private Slider Damage_Stat;
-    private int DamageCurrentValue;
-    private int DamageTotalStat;
+    [Header("스탯 당 올라갈 수치")]
+    public float PlusDamage = 1;
+    public float PlusSpeed = 1;
+    public float PlusPlayerHp = 20;
+    public float MinusCoolTime = 0.01f;
+    public float PlusDashSpeed = 10;
 
-    [Header("SkillCoolTimeStat")]
-    [SerializeField] private Slider SkillCoolTime_Stat;
-    private int SkillCoolTimeValue;
-    private int SkillCoolTimeTotalStat;
+    public List<StatSave> StatSaves = new List<StatSave>();
+    public Health health;
 
-    [Header("CreticalPercentageStat")]
-    [SerializeField] private Slider CreticalPrecentage_Stat;
-    private int CreticalPrecentageValue;
-    private int CreticalPrecentageTotalStat;
-
-    [Header("CreticalDamageStat")]
-    [SerializeField] private Slider CreticalDamage_Stat;
-    private int CreticalDamageValue;
-    private int CreticalDamageTotalStat;
     private void Start()
     {
         //PlayerPrefs.DeleteAll();
         CurrentStat = PlayerPrefs.GetInt("Stat", Stat);
+        for (int i = 0; i < StatSaves.Count; i++)
+            StatSetting(i);
 
-        
+        speed += StatSaves[0].Value * PlusSpeed;
+        damage += StatSaves[1].Value * PlusDamage;
+        health.playerHp += PlusPlayerHp * StatSaves[2].Value;
+        PlayerSkillController.Instance.SettingCoolTimes.ForEach(p => p.SetCoolTime = p.SetCoolTime - (StatSaves[3].Value * MinusCoolTime));
+        Dashspeed += StatSaves[4].Value * PlusDashSpeed;
     }
 
-    private void Update()
+    public void Update()
     {
-        SpeedCurrentValue = PlayerPrefs.GetInt("Speed", 0);
-        DamageCurrentValue = PlayerPrefs.GetInt("Damage", 0);
-        CreticalPrecentageValue = PlayerPrefs.GetInt("CreticalPercentage", 0);
-        CreticalDamageValue = PlayerPrefs.GetInt("CreticalDamage", 0);
-        SkillCoolTimeValue = PlayerPrefs.GetInt("SkillCoolTime", 0);
-
-        Speed_Stat.value = SpeedCurrentValue;
-        Damage_Stat.value = DamageCurrentValue;
-        CreticalPrecentage_Stat.value = CreticalPrecentageValue;
-        CreticalDamage_Stat.value = CreticalDamageValue;
-        SkillCoolTime_Stat.value = SkillCoolTimeValue;
-
         StatTxt.text = "Stat : " + CurrentStat;
     }
-    public void UpSpeed()
+    public void StatSetting(int i)//스탯벨류 세팅
     {
-        if (Speed_Stat.value != Speed_Stat.maxValue && CurrentStat != 0)
-        {
-            Speed_Stat.value += StatUp;
+        StatSaves[i].Value = PlayerPrefs.GetInt(StatSaves[i].StatName, 0);
+        StatSaves[i].StatSlider.value = StatSaves[i].Value;
 
-            SpeedTotalStat = (int)Speed_Stat.value;
-            PlayerPrefs.SetInt("Speed", SpeedTotalStat);
+    }
+    public void Plus(int i)
+    {
+        if (StatSaves[i].Value != StatSaves[i].StatSlider.maxValue && CurrentStat != 0)
+        {
+            SoundManager.Instace.EffectPlay(7,0);
+            StatSaves[i].Value += StatUp;
+            StatSaves[i].TotalStat = (int)StatSaves[i].Value;
+            PlayerPrefs.SetInt(StatSaves[i].StatName, StatSaves[i].TotalStat);
 
             CurrentStat--;
             PlayerPrefs.SetInt("Stat", CurrentStat);
+
+            if (i == 0)
+                speed += PlusSpeed;
+            if (i == 1) //스탯배열의 1번째면
+                damage += PlusDamage;
+            if (i == 2)
+            {
+                health.playerHp += PlusPlayerHp;
+                health.SliderHpSetting();
+            }
+            if (i == 3)
+                PlayerSkillController.Instance.SettingCoolTimes.ForEach(p => p.SetCoolTime = p.SetCoolTime - MinusCoolTime);
+            if (i == 4)
+                Dashspeed += PlusDashSpeed;
+            StatSetting(i);
+
         }
-        else
-            Debug.Log("�ȵ�");
+        else Debug.Log("안돼");
     }
 
-
-    public void UpDamage()
+    public void Minus(int i)
     {
-        if (Damage_Stat.value != Damage_Stat.maxValue && CurrentStat != 0)
+        if (StatSaves[i].Value != 0)
         {
-            Damage_Stat.value += StatUp;
+            SoundManager.Instace.EffectPlay(6,0);
 
-            DamageTotalStat = (int)Damage_Stat.value;
-            PlayerPrefs.SetInt("Damage", DamageTotalStat);
-
-            CurrentStat--;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-        else
-            Debug.Log("�ȵ�");
-
-    }
-    public void UpSkillCoolTime()
-    {
-        if (SkillCoolTime_Stat.value != SkillCoolTime_Stat.maxValue && CurrentStat != 0)
-        {
-            SkillCoolTime_Stat.value += StatUp;
-
-            SkillCoolTimeTotalStat = (int)SkillCoolTime_Stat.value;
-            PlayerPrefs.SetInt("SkillCoolTime", SkillCoolTimeTotalStat);
-
-            CurrentStat--;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-        else
-            Debug.Log("�ȵ�");
-    }
-    public void UpCreticalPercentage()
-    {
-        if (CreticalPrecentage_Stat.value != CreticalPrecentage_Stat.maxValue && CurrentStat != 0)
-        {
-            CreticalPrecentage_Stat.value += StatUp;
-
-            CreticalPrecentageTotalStat = (int)CreticalPrecentage_Stat.value;
-            PlayerPrefs.SetInt("CreticalPercentage", CreticalPrecentageTotalStat);
-
-            CurrentStat--;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-        else
-            Debug.Log("�ȵ�");
-
-    }
-    public void UpCreticalDamage()
-    {
-        if (CreticalDamage_Stat.value != CreticalDamage_Stat.maxValue && CurrentStat != 0)
-        {
-            CreticalDamage_Stat.value += StatUp;
-
-            CreticalDamageTotalStat = (int)CreticalDamage_Stat.value;
-            PlayerPrefs.SetInt("CreticalDamage", CreticalDamageTotalStat);
-
-            CurrentStat--;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-        else
-            Debug.Log("�ȵ�");
-    }
-    public void DownSpeed()
-    {
-        if (Speed_Stat.value != Speed_Stat.minValue && CurrentStat != 0 || CurrentStat == 0)
-        {
-            Speed_Stat.value -= StatUp;
-
-            SpeedTotalStat = (int)Speed_Stat.value;
-            PlayerPrefs.SetInt("Speed", SpeedTotalStat);
+            StatSaves[i].Value -= StatUp;
+            StatSaves[i].TotalStat = (int)StatSaves[i].Value;
+            PlayerPrefs.SetInt(StatSaves[i].StatName, StatSaves[i].TotalStat);
 
             CurrentStat++;
             PlayerPrefs.SetInt("Stat", CurrentStat);
+
+            if (i == 0)
+                speed -= PlusSpeed;
+            if (i == 1)
+                damage -= PlusDamage;
+            if (i == 2)
+            {
+                health.playerHp -= PlusPlayerHp;
+                health.SliderHpSetting();
+            }
+            if (i == 3)
+                PlayerSkillController.Instance.SettingCoolTimes.ForEach(p => p.SetCoolTime += MinusCoolTime);
+            if (i == 4)
+                Dashspeed -= PlusDashSpeed;
+            StatSetting(i);
         }
+        else Debug.Log("안됩니당");
     }
-
-    public void DownDamage()
-    {
-        if (Damage_Stat.value != Damage_Stat.minValue && CurrentStat != 0 || CurrentStat == 0)
-        {
-            Damage_Stat.value -= StatUp;
-
-            DamageTotalStat = (int)Speed_Stat.value;
-            PlayerPrefs.SetInt("Damage", DamageTotalStat);
-
-            CurrentStat++;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-    }
-    public void DownSkillCoolTime()
-    {
-        if (SkillCoolTime_Stat.value != SkillCoolTime_Stat.minValue && CurrentStat != 0 || CurrentStat == 0)
-        {
-            SkillCoolTime_Stat.value -= StatUp;
-
-            SkillCoolTimeTotalStat = (int)SkillCoolTime_Stat.value;
-            PlayerPrefs.SetInt("SkillCoolTime", SkillCoolTimeTotalStat);
-
-            CurrentStat++;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-    }
-
-    public void DownCreticalDamage()
-    {
-        if (CreticalDamage_Stat.value != CreticalDamage_Stat.minValue && CurrentStat != 0 || CurrentStat == 0)
-        {
-            CreticalDamage_Stat.value -= StatUp;
-
-            CreticalDamageTotalStat = (int)CreticalDamage_Stat.value;
-            PlayerPrefs.SetInt("CreticalDamage", CreticalDamageTotalStat);
-
-            CurrentStat++;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-    }
-    public void DownCreticalPrecentage()
-    {
-        if (CreticalPrecentage_Stat.value != CreticalPrecentage_Stat.minValue && CurrentStat != 0 || CurrentStat == 0)
-        {
-            CreticalPrecentage_Stat.value -= StatUp;
-
-            CreticalPrecentageTotalStat = (int)CreticalPrecentage_Stat.value;
-            PlayerPrefs.SetInt("CreticalPercentage", CreticalPrecentageTotalStat);
-
-            CurrentStat++;
-            PlayerPrefs.SetInt("Stat", CurrentStat);
-        }
-    }
-
     public void Back()
     {
+        SoundManager.Instace.EffectPlay(5, 0);
+
         StatPanel.SetActive(false);
     }
 }

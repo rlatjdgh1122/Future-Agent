@@ -3,68 +3,126 @@ using System.Collections.Generic;
 using UnityEngine;
 using GlobalName;
 using System;
+using UnityEngine.UI;
 
 public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
 {
-    [SerializeField] new Name name;
-    public float Hp;
+    public Slider PlayerHpSlider;
+    ParticleSystem bloodParticle;
+    public static Health Instance;
+    public GameObject hudDamageText;
+    public Transform hudPos;
 
+    SpriteRenderer sr;
+    Color halfA = Color.red;
+    Color fullA = new Color(1, 1, 1, 1);
+
+    [SerializeField] new Name name;
+    [Header("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½")]
+    public float playerHp = 0;
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½")]
+    public float enemyHp = 0;
     Hit Hit;
 
-    #region Ã¼·ÂÀ» °ü¸®ÇØÁÖ´Â ¸Þ¼­µå
+    private void Start()
+    {
+        Instance = this;
+        bloodParticle = GetComponent<ParticleSystem>();
+        sr = GetComponent<SpriteRenderer>();
+        SliderHpSetting();
+    }
+    public void SliderHpSetting()
+    {
+        if (name == Name.Player)
+        {
+            PlayerHpSlider.maxValue = playerHp;
+            PlayerHpSlider.value = playerHp;
+        }
+    }
+
+    #region Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void Damaged(float damaged, Hit hit)
     {
         hit(damaged);
     }
     public float EnemyHp(float damaged)
     {
+        SoundManager.Instace.EffectPlay(3, 0);
         if (name == Name.Player)
             damaged = 0; //
-        Hp -= damaged;
-        if (Hp > 0)
+        enemyHp -= damaged;
+        if (enemyHp > 0)
         {
-            //¸ÂÀ½ ¿¡´Ï¸ÞÀÌ¼Ç 
-            ShakeCamera.camera.SetTrigger("Shake");
+            GameObject enemyHudText = Instantiate(hudDamageText);
+            enemyHudText.transform.position = hudPos.position;
+            enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ 
+            ShakeCamera.Instance.Shake(3, 0.2f);
+            bloodParticle.Play();
+            StartCoroutine("alphablink");
         }
-        else if (Hp <= 0)
+        else if (enemyHp <= 0)
         {
-            //Á×À½ ¾Ö´Ï¸ÞÀÌ¼Ç
-            //¿òÁ÷ÀÓ ¸ØÃã
-            ShakeCamera.camera.SetTrigger("Shake");
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            SoundManager.Instace.EffectPlay(3, 0);
+            ShakeCamera.Instance.Shake(3, 0.2f);
+            Destroy(gameObject);
         }
-        return Hp;
+        return enemyHp;
     }
     public float PlyerHp(float damaged)
     {
         if (name == Name.Enemy)
             damaged = 0; //
-        Hp -= damaged;
-        if (Hp > 0)
+        playerHp -= damaged;
+        PlayerHpSlider.value = playerHp;
+        if (playerHp > 0)
         {
-            //¸ÂÀ½ ¿¡´Ï¸ÞÀÌ¼Ç 
-            //¹Ð¸²
-            ShakeCamera.camera.SetTrigger("Shake");
-            Debug.Log("µ¥¹ÌÁö ÀÔÀ½");
+            GameObject playerHudText = Instantiate(hudDamageText);
+            playerHudText.transform.position = hudPos.position;
+            playerHudText.GetComponent<DamageText>().damage = (int)damaged;
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½Ì¼ï¿½ 
+            //ï¿½Ð¸ï¿½
+            SoundManager.Instace.EffectPlay(3, 0);
+            ShakeCamera.Instance.Shake(3, 0.2f);
+            bloodParticle.Play();
+            StartCoroutine("alphablink");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
-        else if (Hp <= 0)
+        else if (playerHp <= 0)
         {
-            //Á×À½ ¾Ö´Ï¸ÞÀÌ¼Ç
-            //¿òÁ÷ÀÓ ¸ØÃã
-            Debug.Log("Á×À½");
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            SoundManager.Instace.EffectPlay(3, 0);
+            ShakeCamera.Instance.Shake(3, 0.2f);
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         }
-        return Hp;
+        return playerHp;
     }
 
     #endregion
 
-    #region Ã¼·Â °ü¸® ¸Þ¼­µå¿¡¼­ È£ÃâµÇ´Â ¸Þ¼­µå
+    #region Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½å¿¡ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void OnDieDestory()
     {
         Destroy(gameObject);
     }
     #endregion
-    void Lamda(Action action) //¶÷´Ù ¸Þ¼­µå
+    private IEnumerator alphablink() //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            sr.color = halfA;
+            yield return new WaitForSeconds(0.1f);
+            sr.color = fullA;
+            StopCoroutine("alphablink");
+
+        }
+    }
+    void Lamda(Action action) //ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     {
         action();
     }

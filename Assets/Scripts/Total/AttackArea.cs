@@ -6,23 +6,21 @@ using GlobalName;
 public class AttackArea : MonoBehaviour
 {
     [SerializeField] new Name name;
-    public float Damage;
+    public float EnemyDamage;
     Health health;
-
     #region 충돌 처리
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<Health>() != null && name == Name.Enemy)
         {
             health = collision.GetComponent<Health>();
-            health.Damaged(Damage, health.PlyerHp);
+            health.Damaged(EnemyDamage, health.PlyerHp);
         }
 
         if (collision.GetComponent<Health>() != null && name == Name.Player)
         {
             health = collision.GetComponent<Health>();
-            health.Damaged(Damage, health.EnemyHp);
-
+            health.Damaged(StatManager.DamageP, health.EnemyHp);
         }
     }
     

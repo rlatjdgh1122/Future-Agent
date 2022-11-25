@@ -9,6 +9,7 @@ public class InterfaceManager : MonoBehaviour
     public Animator ModeAnim;
     [Header("GameObjects")]
     public GameObject Gameinterface;
+    public PlayerController Player;
     public GameObject Intro;
     [SerializeField] private GameObject Mode;
 
@@ -20,16 +21,22 @@ public class InterfaceManager : MonoBehaviour
 
     public void Back()
     {
+        SoundManager.Instace.EffectPlay(5, 0);
         Gameinterface.SetActive(false);
         Intro.SetActive(true);
+
+        Player.enabled = (false);
     }
     public void GameStart()
     {
         if (skill.ui_images[3].sprite != null && stat.CurrentStat == 0)
         {
+            SoundManager.Instace.EffectPlay(5, 0);
+
             anim.SetTrigger("IsText");
             ModeAnim.SetTrigger("IsOpen");
             Txt.text = "선택 할 모드를 고르시오";
+
             Mode.SetActive(true);
             gameObject.SetActive(false);
         }
