@@ -9,6 +9,7 @@ public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
 {
     public Slider PlayerHpSlider;
+   ParticleSystem bloodParticle;
     public static Health Instance;
     public GameObject hudDamageText;
     public Transform hudPos;
@@ -27,6 +28,7 @@ public class Health : MonoBehaviour
     private void Start()
     {
         Instance = this;
+        bloodParticle = GetComponent<ParticleSystem>();
         sr = GetComponent<SpriteRenderer>();
         SliderHpSetting();
     }
@@ -56,6 +58,7 @@ public class Health : MonoBehaviour
             enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
             //���� ���ϸ��̼� 
             ShakeCamera.Instance.Shake(3, 0.2f);
+            bloodParticle.Play();
             StartCoroutine("alphablink");
         }
         else if (enemyHp <= 0)
@@ -80,6 +83,7 @@ public class Health : MonoBehaviour
             playerHudText.GetComponent<DamageText>().damage = (int)damaged;
             //���� ���ϸ��̼� 
             //�и�
+            bloodParticle.Play();
             ShakeCamera.Instance.Shake(3, 0.2f);
             StartCoroutine("alphablink");
             Debug.Log("������ ����");
