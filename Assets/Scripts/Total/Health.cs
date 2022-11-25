@@ -9,7 +9,7 @@ public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
 {
     public Slider PlayerHpSlider;
-   ParticleSystem bloodParticle;
+    ParticleSystem bloodParticle;
     public static Health Instance;
     public GameObject hudDamageText;
     public Transform hudPos;
@@ -48,6 +48,7 @@ public class Health : MonoBehaviour
     }
     public float EnemyHp(float damaged)
     {
+        SoundManager.Instace.EffectPlay(3, 0);
         if (name == Name.Player)
             damaged = 0; //
         enemyHp -= damaged;
@@ -65,6 +66,7 @@ public class Health : MonoBehaviour
         {
             //���� �ִϸ��̼�
             //������ ����
+            SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
             Destroy(gameObject);
         }
@@ -83,8 +85,9 @@ public class Health : MonoBehaviour
             playerHudText.GetComponent<DamageText>().damage = (int)damaged;
             //���� ���ϸ��̼� 
             //�и�
-            bloodParticle.Play();
+            SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
+            bloodParticle.Play();
             StartCoroutine("alphablink");
             Debug.Log("������ ����");
         }
@@ -92,6 +95,7 @@ public class Health : MonoBehaviour
         {
             //���� �ִϸ��̼�
             //������ ����
+            SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
             Debug.Log("����");
         }

@@ -43,6 +43,8 @@ public class SkillManager : MonoBehaviour
     }
     public void choose_Skill(int index)
     {
+        SoundManager.Instace.EffectPlay(5, 0);
+
         if (isChoice)
         {
             choose_Item = items[index].Skill_Image;
@@ -55,6 +57,8 @@ public class SkillManager : MonoBehaviour
     }
     public void Reset_Skill()
     {
+        SoundManager.Instace.EffectPlay(5, 0);
+
         for (int i = ui_images.Length - 1; i >= 0; i--)
         {
             ui_images[i].sprite = null;
@@ -70,6 +74,7 @@ public class SkillManager : MonoBehaviour
 
     public void Choice_Skill()
     {
+        SoundManager.Instace.EffectPlay(5, 0);
 
         //GameObject player = Instantiate(Resources.Load("Player"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         SetSkillMethod();
@@ -84,7 +89,7 @@ public class SkillManager : MonoBehaviour
             {
                 {
                     string name = ChoiceScript[i];
-                    switch (name) 
+                    switch (name)
                     {
                         case "a":
                             PlayerSkillController.unityAction[i].AddListener(skillMethod.Skill1);
@@ -114,11 +119,11 @@ public class SkillManager : MonoBehaviour
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Console.WriteLine(e);
         }
-        
+
     }
     public void ResetSkillMethod()
     {
@@ -131,7 +136,7 @@ public class SkillManager : MonoBehaviour
     }
     public void ResetSkillCoolTime()
     {
-        for(int i =0; i < 4; i++)
+        for (int i = 0; i < 4; i++)
         {
             PlayerSkillController.coolTimes[i].Skill_CoolTime = 0;
             PlayerSkillController.coolTimes[i].Skill_Time = 0;

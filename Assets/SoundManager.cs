@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Instace.EffectPlay(5, 0);
             if (settingPanel.activeInHierarchy == true)
             {
                 settingPanel.SetActive(false);
@@ -29,6 +30,8 @@ public class SoundManager : MonoBehaviour
     }
     public void Cancel_Setting()
     {
+        Instace.EffectPlay(5, 0);
+
         settingPanel.SetActive(false);
     }
     public void Exit_Setting()
@@ -38,6 +41,8 @@ public class SoundManager : MonoBehaviour
     }
     public void Intro_Setting()
     {
+        Instace.EffectPlay(5, 0);
+
         settingPanel.SetActive(false);
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name != "Intro")

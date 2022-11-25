@@ -1617,6 +1617,7 @@ MonoBehaviour:
   anim: {fileID: 2048136454}
   ModeAnim: {fileID: 536905164}
   Gameinterface: {fileID: 1904276754}
+  Player: {fileID: 1838354708}
   Intro: {fileID: 1394554472}
   Mode: {fileID: 1210051813}
   Txt: {fileID: 2048136455}
@@ -5434,7 +5435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608928120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.72, y: -3.09, z: 0}
+  m_LocalPosition: {x: -1.2, y: -4.7, z: 0}
   m_LocalScale: {x: 200, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6405,7 +6406,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6481,7 +6482,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7843,9 +7844,14 @@ MonoBehaviour:
   BG_Source: {fileID: 596700982}
   EF_Source: {fileID: 1135171350}
   cd:
-  - {fileID: 8300000, guid: fc5e1a6c2e7f1f44395eaf08adf640b2, type: 3}
+  - {fileID: 8300000, guid: 6673bb7b68bbcae40ac2cbf24761a54a, type: 3}
   - {fileID: 8300000, guid: b7b6ef3146e0d9c4582d74c6588b016c, type: 3}
   - {fileID: 8300000, guid: 2dbab834019b30148b75e2c7aa7410b5, type: 3}
+  - {fileID: 8300000, guid: c40e93e58b9ee154ab14947a5e01339f, type: 3}
+  - {fileID: 8300000, guid: 0f813908db865ca4d9d569ba6dc10a13, type: 3}
+  - {fileID: 8300000, guid: acec4d26c55b66a41a1d0663f64dc4d3, type: 3}
+  - {fileID: 8300000, guid: 425f493bd4d0626459d9cf956caf9745, type: 3}
+  - {fileID: 8300000, guid: dd1f4f3674936b74fb086a4108133c8b, type: 3}
 --- !u!4 &980565953
 Transform:
   m_ObjectHideFlags: 0
@@ -11579,7 +11585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1394554473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18267,6 +18273,7 @@ GameObject:
   - component: {fileID: 1838354710}
   - component: {fileID: 1838354709}
   - component: {fileID: 1838354714}
+  - component: {fileID: 1838354719}
   - component: {fileID: 1838354717}
   - component: {fileID: 1838354708}
   - component: {fileID: 1838354707}
@@ -18274,7 +18281,6 @@ GameObject:
   - component: {fileID: 1838354713}
   - component: {fileID: 1838354715}
   - component: {fileID: 1838354716}
-  - component: {fileID: 1838354719}
   - component: {fileID: 1838354718}
   m_Layer: 8
   m_Name: Player
@@ -23608,7 +23614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1904276755
 Transform:
   m_ObjectHideFlags: 0
@@ -24470,6 +24476,7 @@ MonoBehaviour:
   StatPanel: {fileID: 938036477}
   MainMenuPanel: {fileID: 1394554472}
   Player_UI: {fileID: 1904276754}
+  Player: {fileID: 1838354708}
 --- !u!1 &2016561698
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,6 +59,7 @@ public class StatManager : MonoBehaviour
     {
         if (StatSaves[i].Value != StatSaves[i].StatSlider.maxValue && CurrentStat != 0)
         {
+            SoundManager.Instace.EffectPlay(7,0);
             StatSaves[i].Value += StatUp;
             StatSaves[i].TotalStat = (int)StatSaves[i].Value;
             PlayerPrefs.SetInt(StatSaves[i].StatName, StatSaves[i].TotalStat);
@@ -89,6 +90,8 @@ public class StatManager : MonoBehaviour
     {
         if (StatSaves[i].Value != 0)
         {
+            SoundManager.Instace.EffectPlay(6,0);
+
             StatSaves[i].Value -= StatUp;
             StatSaves[i].TotalStat = (int)StatSaves[i].Value;
             PlayerPrefs.SetInt(StatSaves[i].StatName, StatSaves[i].TotalStat);
@@ -115,6 +118,8 @@ public class StatManager : MonoBehaviour
     }
     public void Back()
     {
+        SoundManager.Instace.EffectPlay(5, 0);
+
         StatPanel.SetActive(false);
     }
 }

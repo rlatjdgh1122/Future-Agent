@@ -150,13 +150,14 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && IsCanDash)
         {
+            SoundManager.Instace.EffectPlay(4,0);
             StartCoroutine("co_Dash");
             IsCanDash = false;
         }
 
         if (IsDash)
         {
-            movement.defaultSpeed = StatManager.DashSpeedP;
+            movement.defaultSpeed = StatManager.DashSpeedP; 
             Physics2D.IgnoreLayerCollision(7, 8, true);
         }
         else
