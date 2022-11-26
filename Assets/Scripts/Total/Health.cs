@@ -68,6 +68,7 @@ public class Health : MonoBehaviour
             //������ ����
             SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
+            GameManager.Instance.count++;
             Destroy(gameObject);
         }
         return enemyHp;

@@ -7,7 +7,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemy = new GameObject[3];
     [SerializeField] private int enemyCount;
 
-    public Transform xPos;
 
     public float xRange_left;
     public float xRange_right;
@@ -22,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(Random.Range(xRange_left, xRange_right),-1.05f, 1); 
             Debug.Log(spawnPos);
-            GameObject gameObject = Instantiate(enemy[Random.Range(0, 3)], spawnPos, Quaternion.identity);
+            GameObject.Instantiate(enemy[Random.Range(0, 3)], spawnPos, Quaternion.identity).transform.parent = transform;
         }
     }
 }
