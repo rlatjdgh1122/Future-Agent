@@ -13,6 +13,6 @@ public class RangedZombie : Zombie
     }
     public void Attack()
     {
-        GameObject a = Instantiate(PrefabAttack, PrefabPos.position, Quaternion.identity);
+        GameObject.Instantiate(PrefabAttack, PrefabPos.position, Quaternion.identity).transform.parent = transform;
     }
 }

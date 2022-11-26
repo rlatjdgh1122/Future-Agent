@@ -8,22 +8,33 @@ public class SkillMethod : MonoBehaviour
     PlayerController playerController;
 
 
+
+    [SerializeField] GameObject particle;
+
     [SerializeField] GameObject slash;
     [SerializeField] GameObject ball;
     [SerializeField] Transform SlashRotation; 
     [SerializeField] Transform Pos;
     Vector3 dir;
 
+    [Header("강화할 공격")]
+    [SerializeField] AttackSlash attackSlash;
+    [SerializeField] SkillBall skillBall;
+    [SerializeField] PlayerHeavyAttackArea playerHeavyAttackArea;
+    public float PlusDamage;
 
     [Header("시전 시간")]
     public float Slash_CastTime = 10;
+    public float AttackUp_CastTime = 5;
     public float Cancel_DashCoolTime = 3;
 
+    Health health;
     #region 호출할 스킬 메서드
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        health = GetComponent<Health>();
     }
     private void Update()
     {
@@ -48,13 +59,16 @@ public class SkillMethod : MonoBehaviour
         GameObject a = Instantiate(ball, transform.position, Quaternion.identity);
         SoundManager.Instace.EffectPlay(1, 0);
     }
-    public void Skill5() //모든 공격력이 상승됨 몸이 빨개짐
+    public void Skill5() //모든 스킬 공격력 증가
     {
-        Debug.Log("5");
+        particle.SetActive(true);   
+        StartCoroutine("AttackDamageUp");
     }
     public void Skill6() //체력을 풀피로 채워줌
     {
-        Debug.Log("6");
+        SoundManager.Instace.EffectPlay(8, 0);
+        health.playerHp = health.PlayerHpSlider.maxValue;
+        health.PlayerHpSlider.value = health.PlayerHpSlider.maxValue;
     }
     #endregion
     public void Slash()
@@ -79,6 +93,21 @@ public class SkillMethod : MonoBehaviour
         playerController.Skil2_HeavyAttack = true;
         yield return new WaitForSeconds(Slash_CastTime);
         playerController.Skil2_HeavyAttack = false;
+    }
+    IEnumerator AttackDamageUp()
+    {
+        attackSlash.Damage += PlusDamage;
+        skillBall.Damage += PlusDamage;
+        playerHeavyAttackArea.HeavyAttackDamage += PlusDamage;
+
+
+        yield return new WaitForSeconds(AttackUp_CastTime);
+
+        particle.SetActive(false);
+
+        attackSlash.Damage -= PlusDamage;
+        skillBall.Damage -= PlusDamage;
+        playerHeavyAttackArea.HeavyAttackDamage -= PlusDamage;
     }
     #endregion
 }

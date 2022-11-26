@@ -39,10 +39,10 @@ public class ShakeCamera : MonoBehaviour
             }
         }
         if (ZoomActive)
-            cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtual.m_Lens.OrthographicSize, 4, ZoomSpeed);
+            cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtual.m_Lens.OrthographicSize, 5, ZoomSpeed);
 
         if (!ZoomActive)
-            cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtual.m_Lens.OrthographicSize, 5, ZoomSpeed);
+            cinemachineVirtual.m_Lens.OrthographicSize = Mathf.Lerp(cinemachineVirtual.m_Lens.OrthographicSize, 8, ZoomSpeed);
     }
 
 }

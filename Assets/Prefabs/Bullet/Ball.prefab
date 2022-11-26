@@ -190,11 +190,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FoundObjects: []
   enemy: {fileID: 0}
-  Damage: 10
-  speed: 10
   TagName: Target
   shortDis: 0
-  colliders: []
+  speed: 10
+  Damage: 1000
   boxSize: {x: 30, y: 10}
   boxPos: {fileID: 0}
   layer:

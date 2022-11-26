@@ -14,7 +14,7 @@ public class StatManager : MonoBehaviour
     public int Stat;
     private int StatUp = 1;
 
-    public static float damage = 10; //기본데미지
+    public static float damage = 150; //기본데미지
     public static float speed = 7; //기본 스피드
     public static float Dashspeed = 50; //기본 대시스피드
     public static float DamageP { get { return damage; } set { damage = value; } }
@@ -33,7 +33,6 @@ public class StatManager : MonoBehaviour
 
     private void Start()
     {
-        //PlayerPrefs.DeleteAll();
         CurrentStat = PlayerPrefs.GetInt("Stat", Stat);
         for (int i = 0; i < StatSaves.Count; i++)
             StatSetting(i);
@@ -116,6 +115,7 @@ public class StatManager : MonoBehaviour
         }
         else Debug.Log("안됩니당");
     }
+    
     public void Back()
     {
         SoundManager.Instace.EffectPlay(5, 0);

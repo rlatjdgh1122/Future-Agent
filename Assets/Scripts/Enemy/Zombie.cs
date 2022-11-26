@@ -46,29 +46,22 @@ public class Zombie : MonoBehaviour
     void Update()
     {
         Move();
-        foreach (Collider2D collider in collider2Ds)
-        {
-            if (collider.tag == "Player")
-            {
-                rigid.velocity = Vector2.zero;
-            }
-        }
     }
     public void Move()
     {
         //Vector2 direction = ;
        float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
         if (isMove && distance > effectiveRange)
-            transform.Translate(rigid.velocity = new Vector3(player.position.x - transform.position.x, 0, 0) * moveSpeed * Time.deltaTime);
+            transform.Translate(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
         //transform.Translate(new Vector2(player.position.x - transform.position.x, 0) * moveSpeed * Time.deltaTime);
 
         if (player.transform.position.x < transform.position.x && isMove)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
         else if (player.transform.position.x > transform.position.x && isMove)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
     public IEnumerator AttackPos()

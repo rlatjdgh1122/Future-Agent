@@ -9,8 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
     public Transform xPos;
 
-    public Vector2 xRange;
-    public Vector2 yRange;
+    public float xRange_left;
+    public float xRange_right;
 
     private void Start()
     {
@@ -20,13 +20,9 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyCount; i++)
         {
-            Vector3 spawnPos = new Vector3(Random.Range(xRange.x, xRange.y),-1, 1);
+            Vector3 spawnPos = new Vector3(Random.Range(xRange_left, xRange_right),-1.05f, 1); 
+            Debug.Log(spawnPos);
             GameObject gameObject = Instantiate(enemy[Random.Range(0, 3)], spawnPos, Quaternion.identity);
         }
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(xPos.position, xRange);
     }
 }

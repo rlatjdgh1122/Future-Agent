@@ -12,9 +12,10 @@ public class FatAttack : MonoBehaviour
 
     private void Start()
     {
-        float a = GameObject.Find("Fat Zombie").transform.localScale.x;
-        if (a == 1) { transform.rotation = Quaternion.Euler(0,0,20); }
-        if (a == -1) { transform.rotation = Quaternion.Euler(0, 0, -200); }
+
+        float a = transform.parent.eulerAngles.y;
+        if (a == 0) { transform.rotation = Quaternion.Euler(0,0,20); }
+        if (a == 180) { transform.rotation = Quaternion.Euler(0, 0, -200); }
 
         rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = transform.right * speed;

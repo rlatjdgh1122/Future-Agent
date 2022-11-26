@@ -11,9 +11,11 @@ public class RangedAttack : MonoBehaviour
     Health health;
     private void Start()
     {
-        float a = GameObject.Find("Ranged Zombie").transform.localScale.x;
-        if (a == 1) { transform.localScale = new Vector3(1, 1, 1); dir = Vector3.right; }
-        if (a == -1) { transform.localScale = new Vector3(-1, 1, 1); dir = Vector3.left; }
+        float a = transform.parent.eulerAngles.y;
+
+        
+        if (a == 180) { transform.localScale = new Vector3(-1, 1, 1); dir = Vector3.left; }
+        if (a == 0) { transform.localScale = new Vector3(1, 1, 1); dir = Vector3.right; }
 
     }
     void Update()

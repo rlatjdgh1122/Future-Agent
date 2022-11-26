@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3416838873666337783}
   - component: {fileID: 3416838873666337777}
   - component: {fileID: 3416838873666337776}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: AttackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 0
-  EnemyDamage: 10
+  EnemyDamage: 180
 --- !u!1 &3416838874048879595
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3416838874048878612}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: HudPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 3416838873368688102}
   - component: {fileID: -2160680639978682633}
   - component: {fileID: -7120202697870482605}
-  - component: {fileID: -3596185254649628708}
-  m_Layer: 7
+  - component: {fileID: 4226422258673753588}
+  m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ MonoBehaviour:
   hudPos: {fileID: 3416838874048878612}
   name: 0
   playerHp: 0
-  enemyHp: 10000
+  enemyHp: 2000
 --- !u!114 &3416838873368688102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,7 +5012,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!61 &-3596185254649628708
+--- !u!61 &4226422258673753588
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5025,7 +5025,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.30332327, y: -0.16950393}
+  m_Offset: {x: -0.3247018, y: -0.16235113}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5036,7 +5036,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7510233, y: 2.6609921}
+  m_Size: {x: 1.7011919, y: 2.6752977}
   m_EdgeRadius: 0
 --- !u!1 &3416838874592697140
 GameObject:
@@ -5047,7 +5047,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3416838874592697141}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: boxSize
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -122,8 +122,4 @@ public class Health : MonoBehaviour
 
         }
     }
-    void Lamda(Action action) //���� �޼���
-    {
-        action();
-    }
 }
