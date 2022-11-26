@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     [SerializeField] new Name name;
     [Header("�÷��̾��� ��")]
     public float playerHp = 0;
+
     [Header("���� ��")]
     public float enemyHp = 0;
     Hit Hit;

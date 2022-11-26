@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class PlayerSkillController : MonoBehaviour
 {
+    public stat Setstat;
 
     public static PlayerSkillController Instance;
     public UnityEvent[] unityAction = new UnityEvent[4];

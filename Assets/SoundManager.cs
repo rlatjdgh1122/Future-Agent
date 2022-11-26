@@ -39,15 +39,6 @@ public class SoundManager : MonoBehaviour
         Application.Quit();
         settingPanel.SetActive(false);
     }
-    public void Intro_Setting()
-    {
-        Instace.EffectPlay(5, 0);
-
-        settingPanel.SetActive(false);
-        Scene scene = SceneManager.GetActiveScene();
-        if (scene.name != "Intro")
-            SceneManager.LoadScene("Intro");
-    }
     public void BG_Volume(float volume)
     {
         BG_Source.volume = volume;

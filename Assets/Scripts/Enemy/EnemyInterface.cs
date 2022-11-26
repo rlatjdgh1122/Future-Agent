@@ -5,6 +5,6 @@ namespace Assets.Scripts.Enemy
 {
     internal interface IEnemyInterface
     {
-        void MoveRandom(float a, float b, float Move);
+        public void Move();
     }
 }

@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class MoveScenes : MonoBehaviour
 {
     //public int nextSceneIndex;
-    public GameObject[] SceneChangeObj;
-    public GameObject[] SetActivesgameObjects;
+    public GameObject SceneChangeObj;
+    public GameObject Canvas;
+    public GameObject scene;
     public GameObject player;
-
+    public GameObject[] SetActivesgameObjects;
+    int count;
     public void MoveScene(int i)
     {
         player.transform.position = new Vector3(-5, -3.0417316f, 0);
@@ -17,12 +19,24 @@ public class MoveScenes : MonoBehaviour
         {
             SetActivesgameObjects[a].SetActive(false);
         }
-        for (int a = 0; a < SceneChangeObj.Length; a++)
+        if (GameObject.Find("Player"))
         {
-            DontDestroyOnLoad(SceneChangeObj[a]);
+            count++;
+            Debug.Log(count);
+        }
+        if (count == 1)
+        {
+            DontDestroyOnLoad(SceneChangeObj);
+            DontDestroyOnLoad(Canvas);
+            DontDestroyOnLoad(scene);
+        }
+        else
+        {
+            Destroy(SceneChangeObj);
+            Destroy(Canvas);
+            Destroy(scene);
         }
         SceneManager.LoadScene(i);
-
     }
 
 }

@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Enemy;
 
-
-public class Zombie : MonoBehaviour
+public class BossZombie : MonoBehaviour, IEnemyInterface
 {
-    public float MinSpeed;
-    public float MaxSpeed;
     public float moveSpeed;
 
     public float AttackDelay = 3;
@@ -21,25 +19,16 @@ public class Zombie : MonoBehaviour
     Animator anim;
     Transform player;
 
+    public GameObject attack1;
+    public GameObject attack2;
     bool isMove;
-
-
-    void OnEnable()
+    void Start()
     {
         isMove = true;
         StartCoroutine(AttackPos());
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
-
-    }
-    private void Start()
-    {
-        RandomSpeed();
-    }
-    public void RandomSpeed()
-    {
-        moveSpeed = Random.Range(MinSpeed, MaxSpeed);
     }
     void Update()
     {
@@ -47,7 +36,7 @@ public class Zombie : MonoBehaviour
     }
     public void Move()
     {
-       float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
+        float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
         if (isMove && distance > effectiveRange)
             transform.Translate(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
 
@@ -71,16 +60,35 @@ public class Zombie : MonoBehaviour
                 if (collider.tag == "Player")
                 {
                     isMove = false;
-                    anim.SetTrigger("Attack");
+                    int randomAttack = Random.Range(0, 2);
+
+                    if (randomAttack == 0)
+                        anim.SetTrigger("Attack1");
+
+                    else anim.SetTrigger("Attack2");
+
                     yield return new WaitForSeconds(AttackDelay);
                     isMove = true;
-
                 }
             }
             yield return new WaitForSeconds(0.2f);
         }
-
-
+    }
+    public void Start_Attack1()
+    {
+        attack1.SetActive(true);
+    }
+    public void Start_Attack2()
+    {
+        attack2.SetActive(true);
+    }
+    public void End_Attack1()
+    {
+        attack1.SetActive(false);
+    }
+    public void End_Attack2()
+    {
+        attack2.SetActive(false);
     }
     private void OnDrawGizmos()
     {

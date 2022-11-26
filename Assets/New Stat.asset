@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34973b989c1e18a45986be7c8a52aeaf, type: 3}
+  m_Name: New Stat
+  m_EditorClassIdentifier: 
+  playerHp: 1000
+  damage: 450
+  speed: 3
+  Dashspeed: 0
+  SetCoolTimes:
+  - 5.2
+  - 10.2
+  - 20.2
+  - 20.2
+  - 60.2
+  - 30.2

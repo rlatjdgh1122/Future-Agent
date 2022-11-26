@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SkillManager : MonoBehaviour
 {
+    public stat Setstat;
     public Image[] ui_images;
     public Image[] PlayGame_UI;
     public Color PlayerGame_UIColor;

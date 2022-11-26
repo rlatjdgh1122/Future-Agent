@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public stat Setstat;
+    public float defaultSpeed = 5;
+    public float defaultDashSpeed = 20;
+
     [SerializeField] private Slider slider;
     public float DefaultDashCoolTime = 3;
     private PlayerStat movement;
@@ -150,19 +154,19 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && IsCanDash)
         {
-            SoundManager.Instace.EffectPlay(4,0);
+            SoundManager.Instace.EffectPlay(4, 0);
             StartCoroutine("co_Dash");
             IsCanDash = false;
         }
 
         if (IsDash)
         {
-            movement.defaultSpeed = StatManager.DashSpeedP; 
+            movement.defaultSpeed = defaultDashSpeed + Setstat.Dashspeed;
             Physics2D.IgnoreLayerCollision(7, 8, true);
         }
         else
         {
-            movement.defaultSpeed = StatManager.SpeedP;
+            movement.defaultSpeed = defaultSpeed + Setstat.speed;
 
             Physics2D.IgnoreLayerCollision(7, 8, false);
         }

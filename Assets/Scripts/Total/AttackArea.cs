@@ -5,6 +5,8 @@ using GlobalName;
 
 public class AttackArea : MonoBehaviour
 {
+    public stat Setstat;
+    public float defaultDamage;
     [SerializeField] new Name name;
     public float EnemyDamage;
     Health health;
@@ -20,9 +22,9 @@ public class AttackArea : MonoBehaviour
         if (collision.GetComponent<Health>() != null && name == Name.Player)
         {
             health = collision.GetComponent<Health>();
-            health.Damaged(StatManager.DamageP, health.EnemyHp);
+            health.Damaged(defaultDamage + Setstat.damage, health.EnemyHp);
         }
     }
-    
+
     #endregion
 }
