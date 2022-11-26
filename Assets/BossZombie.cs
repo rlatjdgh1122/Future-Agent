@@ -76,17 +76,19 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     }
     public void Start_Attack1()
     {
+        ShakeCamera.Instance.Shake(15, 0.2f);
         attack1.SetActive(true);
-    }
-    public void Start_Attack2()
-    {
-        attack2.SetActive(true);
     }
     public void End_Attack1()
     {
         attack1.SetActive(false);
     }
-    public void End_Attack2()
+    public void Start_DownAttack()
+    {
+        ShakeCamera.Instance.Shake(30, 0.2f);
+        attack2.SetActive(true);
+    }
+    public void End_DownAttack()
     {
         attack2.SetActive(false);
     }
