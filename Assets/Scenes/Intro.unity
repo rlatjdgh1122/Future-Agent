@@ -10511,6 +10511,7 @@ MonoBehaviour:
   - {fileID: 614983582}
   - {fileID: 2043495519}
   - {fileID: 1210051813}
+  player: {fileID: 1838354703}
 --- !u!4 &1239753592
 Transform:
   m_ObjectHideFlags: 0
@@ -18381,7 +18382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168e9f4c344c44b4bb7be90e59994fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10
+  jumpForce: 6
   defaultSpeed: 0
   isStopMove: 0
   DashDamage: 0
@@ -18407,7 +18408,7 @@ MonoBehaviour:
   dashCollider: {fileID: 2022916974}
   HeavyAttackArea: {fileID: 596480262}
   DashPos: {fileID: 86027413}
-  DashSize: {x: 3, y: 1}
+  DashSize: {x: 0, y: 0}
   collider2Ds: []
   Skil2_HeavyAttack: 0
   IsRotationStop: 0

@@ -8,10 +8,12 @@ public class MoveScenes : MonoBehaviour
     //public int nextSceneIndex;
     public GameObject[] SceneChangeObj;
     public GameObject[] SetActivesgameObjects;
+    public GameObject player;
 
     public void MoveScene(int i)
     {
-        for(int a = 0; a < SetActivesgameObjects.Length; a++)
+        player.transform.position = new Vector3(-5, -3.0417316f, 0);
+        for (int a = 0; a < SetActivesgameObjects.Length; a++)
         {
             SetActivesgameObjects[a].SetActive(false);
         }
@@ -20,7 +22,7 @@ public class MoveScenes : MonoBehaviour
             DontDestroyOnLoad(SceneChangeObj[a]);
         }
         SceneManager.LoadScene(i);
-        
+
     }
-   
+
 }
