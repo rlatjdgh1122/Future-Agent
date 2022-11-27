@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public TMPro.TextMeshProUGUI text;
+    public Animator anim;
     public static EnemySpawner Instance;
     [SerializeField] private GameObject[] enemy = new GameObject[3];
     [SerializeField] private int enemyCount;
@@ -15,9 +17,9 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        Spawn();
+        Spawn(enemyCount);
     }
-    public void Spawn()
+    public void Spawn(int enemyCount)
     {
         for (int i = 0; i < enemyCount; i++)
         {
@@ -28,6 +30,8 @@ public class EnemySpawner : MonoBehaviour
     }
     public void SpawnBoss()
     {
+        anim.SetTrigger("IsText");
+        text.text = "보스 출현!";
         Vector3 spawnPos = new Vector3(17, -1.05f, 1);
         GameObject.Instantiate(enemy[3], spawnPos, Quaternion.identity).transform.parent = transform;
     }

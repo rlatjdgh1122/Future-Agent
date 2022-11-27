@@ -15406,9 +15406,11 @@ MonoBehaviour:
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 1030146264}
   playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 100000000
+  Myname: 
 --- !u!199 &541949539
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -21874,7 +21876,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -21950,7 +21952,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22347,9 +22349,11 @@ MonoBehaviour:
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 1030146264}
   playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 100000000
+  Myname: 
 --- !u!50 &871315909
 Rigidbody2D:
   serializedVersion: 4
@@ -22783,9 +22787,11 @@ MonoBehaviour:
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 1069009297}
   playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 100000000
+  Myname: 
 --- !u!95 &910195417
 Animator:
   serializedVersion: 4
@@ -33011,7 +33017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1394554473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -54867,10 +54873,12 @@ MonoBehaviour:
   PlayerHpSlider: {fileID: 926578279}
   hudDamageText: {fileID: 499003543812039781, guid: f8b388896acc696409c1bda72b0353ac, type: 3}
   hudPos: {fileID: 1249733171}
-  playerController: {fileID: 0}
+  playerController: {fileID: 1838354708}
+  playerSkillController: {fileID: 1838354715}
   name: 1
   playerHp: 1000
   enemyHp: 0
+  Myname: 
 --- !u!114 &1838354715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60526,7 +60534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1904276755
 Transform:
   m_ObjectHideFlags: 0
@@ -63054,9 +63062,11 @@ MonoBehaviour:
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 343849472}
   playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 100000000
+  Myname: 
 --- !u!114 &2146539508
 MonoBehaviour:
   m_ObjectHideFlags: 0

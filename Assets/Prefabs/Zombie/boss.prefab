@@ -407,7 +407,8 @@ MonoBehaviour:
   playerController: {fileID: 0}
   name: 0
   playerHp: 0
-  enemyHp: 50000
+  enemyHp: 30000
+  Myname: "\uBCF4\uC2A4"
 --- !u!114 &2947355243643814051
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     public Transform hudPos;
 
     public PlayerController playerController;
+    public PlayerSkillController playerSkillController;
     ParticleSystem bloodParticle;
     SpriteRenderer sr;
     Animator anim;
@@ -28,6 +29,8 @@ public class Health : MonoBehaviour
     [Header("���� ��")]
     public float enemyHp = 0;
     Hit Hit;
+
+    public string Myname;
 
     private void Start()
     {
@@ -74,8 +77,15 @@ public class Health : MonoBehaviour
             SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
 
-            GameManager.Instance.count++;
-            GameManager.BossCount(1);
+            if (Myname == "")
+            {
+                GameManager.Instance.count++;
+                GameManager.BossCount(1);
+            }
+            if(Myname == "보스")
+            {
+                GameManager.Instance.BossDie(1);
+            }
 
             Destroy(gameObject);
         }
@@ -108,6 +118,7 @@ public class Health : MonoBehaviour
             ShakeCamera.Instance.Shake(3, 0.2f);
 
             playerController.enabled = false;
+            playerSkillController.enabled = false;
             anim.SetTrigger("Die");
         }
         return playerHp;

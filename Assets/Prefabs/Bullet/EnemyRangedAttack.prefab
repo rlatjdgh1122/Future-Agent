@@ -198,6 +198,8 @@ MonoBehaviour:
   PlayerHpSlider: {fileID: 0}
   hudDamageText: {fileID: 0}
   hudPos: {fileID: 0}
+  playerController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 0.001
+  Myname: 11323

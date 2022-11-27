@@ -18,8 +18,6 @@ public class SkillMethod : MonoBehaviour
     Vector3 dir;
 
 
-    bool isUpDamage = false;
-    bool Up = false;
     [Header("강화할 공격")]
     [SerializeField] AttackSlash attackSlash;
     [SerializeField] SkillBall skillBall;
