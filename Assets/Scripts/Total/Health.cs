@@ -8,13 +8,16 @@ using UnityEngine.UI;
 public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
 {
-    public Slider PlayerHpSlider;
-    ParticleSystem bloodParticle;
     public static Health Instance;
+
+    public Slider PlayerHpSlider;
     public GameObject hudDamageText;
     public Transform hudPos;
 
+    public PlayerController playerController;
+    ParticleSystem bloodParticle;
     SpriteRenderer sr;
+    Animator anim;
     Color halfA = Color.red;
     Color fullA = new Color(1, 1, 1, 1);
 
@@ -30,6 +33,7 @@ public class Health : MonoBehaviour
     {
         Instance = this;
         bloodParticle = GetComponent<ParticleSystem>();
+        anim = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         SliderHpSetting();
     }
@@ -69,6 +73,7 @@ public class Health : MonoBehaviour
             //������ ����
             SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
+
             GameManager.Instance.count++;
             Destroy(gameObject);
         }
@@ -91,19 +96,25 @@ public class Health : MonoBehaviour
             ShakeCamera.Instance.Shake(3, 0.2f);
             bloodParticle.Play();
             StartCoroutine("alphablink");
-            Debug.Log("������ ����");
         }
         else if (playerHp <= 0)
         {
             //���� �ִϸ��̼�
             //������ ����
+            Physics2D.IgnoreLayerCollision(7, 8, true);
             SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
-            Debug.Log("����");
+
+            playerController.enabled = false;
+            anim.SetTrigger("Die");
         }
         return playerHp;
     }
 
+    public void PlayerDie()
+    {
+        ShakeCamera.Instance.ZoomActive = true;
+    }
     #endregion
 
     #region ü�� ���� �޼��忡�� ȣ��Ǵ� �޼���

@@ -7681,6 +7681,7 @@ MonoBehaviour:
   - {fileID: 3985569360269427611, guid: baba5ab0d49e30c4390b405f7baacb68, type: 3}
   - {fileID: 8563702681127993767, guid: b80de79f83f9ab347b30f214cc6b92e0, type: 3}
   - {fileID: 1154476908102607915, guid: e3f7f11b22abf6d4eb4ccf2fc44b13da, type: 3}
+  - {fileID: 2947355243643814053, guid: 191a906b0166e99468d31f1a0150061c, type: 3}
   enemyCount: 7
   xRange_left: 14
   xRange_right: 71

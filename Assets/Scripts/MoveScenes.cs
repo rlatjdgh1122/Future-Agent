@@ -12,7 +12,7 @@ public class MoveScenes : MonoBehaviour
     public GameObject player;
     public GameObject[] SetActivesgameObjects;
     int count;
-    public void MoveScene(int i)
+    public void MoveScene()
     {
         player.transform.position = new Vector3(-5, -3.0417316f, 0);
         for (int a = 0; a < SetActivesgameObjects.Length; a++)
@@ -36,7 +36,11 @@ public class MoveScenes : MonoBehaviour
             Destroy(Canvas);
             Destroy(scene);
         }
-        SceneManager.LoadScene(i);
+        Scene sc = SceneManager.GetActiveScene(); //함수 안에 선언하여 사용한다.
+        if (sc.name == "Eesy")
+            SceneManager.LoadScene("Intro");
+        if (sc.name == "Intro")
+            SceneManager.LoadScene("Eesy");
     }
 
 }

@@ -14,8 +14,6 @@ public class PlayerStat : MonoBehaviour
     public float DashDamage;
 
     private Rigidbody2D rb;
-    [HideInInspector]
-    public bool isLongJump = false;
 
     [Header("Dash")]
     [SerializeField] private EdgeCollider2D edgeCollider;
@@ -33,7 +31,7 @@ public class PlayerStat : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (isLongJump && rb.velocity.y > 0)
+        if (rb.velocity.y > 0)
         {
             rb.gravityScale = 1;
             edgeCollider.offset = new Vector2(0, 0.5f);
@@ -42,11 +40,8 @@ public class PlayerStat : MonoBehaviour
         {
             edgeCollider.offset = new Vector2(0, 0);
         }
-        else
-        {
-            rb.gravityScale = 2.5f;
-            edgeCollider.offset = new Vector2(0, 1.5f);
-        }
+        else { rb.gravityScale = 2; }
+      
 
 
         SetColliderPointsFromTrail(trailRenderer, edgeCollider);
