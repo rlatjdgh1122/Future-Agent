@@ -7,21 +7,23 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public TMPro.TextMeshProUGUI CountTxt;
     public int count;
+    static int sum;
     public int CountP { get => count; set { count = value; } }
     private void Awake()
     {
         Instance = this;
-        StartCoroutine("Text");
     }
-   /* private IEnumerator Text()
+    private void Update()
     {
-        while (true)
+        CountTxt.text = count.ToString() + "마리";
+    }
+    public static void BossCount(int i)
+    {
+        sum += i;
+        Debug.Log(sum);
+        if (sum % 7 == 0)
         {
-            CountTxt.text = count.ToString() + "마리";
-            if(count % 7 == 0)
-            {
-                
-            }
+            EnemySpawner.Instance.SpawnBoss();
         }
-    }*/
+    }
 }

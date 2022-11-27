@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance;
     [SerializeField] private GameObject[] enemy = new GameObject[3];
     [SerializeField] private int enemyCount;
 
@@ -13,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         Spawn();
     }
     public void Spawn()

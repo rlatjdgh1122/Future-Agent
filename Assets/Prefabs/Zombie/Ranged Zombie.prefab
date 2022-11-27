@@ -243,6 +243,7 @@ MonoBehaviour:
   PlayerHpSlider: {fileID: 0}
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 8563702680078931341}
+  playerController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 1700
@@ -5001,4 +5002,4 @@ MonoBehaviour:
     m_Bits: 256
   collider2Ds: []
   PrefabAttack: {fileID: 5611120082248495831, guid: 1cae6886acf0a2b4da340d9a927c5e7b, type: 3}
-  PrefabPos: {fileID: 8563702680373766032}
+  PrefabPos: {fileID: 8563702680474852360}

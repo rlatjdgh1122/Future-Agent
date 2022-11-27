@@ -75,6 +75,8 @@ public class Health : MonoBehaviour
             ShakeCamera.Instance.Shake(3, 0.2f);
 
             GameManager.Instance.count++;
+            GameManager.BossCount(1);
+
             Destroy(gameObject);
         }
         return enemyHp;

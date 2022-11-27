@@ -57,4 +57,12 @@ public class SoundManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         EF_Source.PlayOneShot(cd[index]);
     }
+    public void MoveScene()
+    {
+        GameObject a = GameObject.Find("Player");
+        SkillMethod skillMethod = a.GetComponent<SkillMethod>();
+        Destroy(a);
+        SceneManager.LoadScene("Intro");
+        skillMethod.DamageDown();
+    }
 }

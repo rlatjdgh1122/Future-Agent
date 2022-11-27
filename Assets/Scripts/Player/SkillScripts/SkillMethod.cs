@@ -24,6 +24,7 @@ public class SkillMethod : MonoBehaviour
     [SerializeField] AttackSlash attackSlash;
     [SerializeField] SkillBall skillBall;
     [SerializeField] PlayerHeavyAttackArea playerHeavyAttackArea;
+    [SerializeField] stat Setstat;
     public float PlusDamage;
 
     [Header("시전 시간")]
@@ -88,6 +89,7 @@ public class SkillMethod : MonoBehaviour
     {
         attackSlash.Damage -= PlusDamage;
         skillBall.Damage -= PlusDamage;
+        Setstat.damage -= PlusDamage;
         playerHeavyAttackArea.HeavyAttackDamage -= PlusDamage;
     }
     #region 코루틴
@@ -110,7 +112,7 @@ public class SkillMethod : MonoBehaviour
         attackSlash.Damage += PlusDamage;
         skillBall.Damage += PlusDamage;
         playerHeavyAttackArea.HeavyAttackDamage += PlusDamage;
-
+        Setstat.damage += PlusDamage;
 
         yield return new WaitForSeconds(AttackUp_CastTime);
 
@@ -119,6 +121,7 @@ public class SkillMethod : MonoBehaviour
         attackSlash.Damage -= PlusDamage;
         skillBall.Damage -= PlusDamage;
         playerHeavyAttackArea.HeavyAttackDamage -= PlusDamage;
+        Setstat.damage -= PlusDamage;
     }
     #endregion
 }
