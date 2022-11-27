@@ -405,9 +405,10 @@ MonoBehaviour:
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 2947355243461867047}
   playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
-  enemyHp: 30000
+  enemyHp: 1000
   Myname: "\uBCF4\uC2A4"
 --- !u!114 &2947355243643814051
 MonoBehaviour:

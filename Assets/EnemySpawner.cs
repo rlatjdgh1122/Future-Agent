@@ -24,15 +24,13 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < enemyCount; i++)
         {
             Vector3 spawnPos = new Vector3(Random.Range(xRange_left, xRange_right), -1.05f, 1);
-            Debug.Log(spawnPos);
-            GameObject.Instantiate(enemy[Random.Range(0, 3)], spawnPos, Quaternion.identity).transform.parent = transform;
+            Instantiate(enemy[Random.Range(0, 3)], spawnPos, Quaternion.identity).transform.parent = transform;
         }
     }
-    public void SpawnBoss()
+    public void SpawnBoss(Vector3 pos)
     {
         anim.SetTrigger("IsText");
         text.text = "보스 출현!";
-        Vector3 spawnPos = new Vector3(17, -1.05f, 1);
-        GameObject.Instantiate(enemy[3], spawnPos, Quaternion.identity).transform.parent = transform;
+        Instantiate(enemy[3], pos, Quaternion.identity).transform.parent = transform;
     }
 }

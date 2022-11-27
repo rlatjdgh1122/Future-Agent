@@ -19,7 +19,7 @@ public class Zombie : MonoBehaviour
     [SerializeField]
     Collider2D[] collider2Ds;
     Animator anim;
-    Transform player;
+   public Transform player;
 
     bool isMove;
 
@@ -35,6 +35,7 @@ public class Zombie : MonoBehaviour
     }
     private void Start()
     {
+        player = GameObject.Find("Player").transform;
         RandomSpeed();
     }
     public void RandomSpeed()

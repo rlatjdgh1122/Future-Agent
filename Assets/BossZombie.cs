@@ -27,7 +27,7 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
         isMove = true;
         StartCoroutine(AttackPos());
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.Find("Player").transform;
         anim = GetComponent<Animator>();
     }
     void Update()

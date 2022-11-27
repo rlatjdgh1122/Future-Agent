@@ -80,7 +80,7 @@ public class Health : MonoBehaviour
             if (Myname == "")
             {
                 GameManager.Instance.count++;
-                GameManager.BossCount(1);
+                GameManager.Instance.BossCount(1);
             }
             if(Myname == "보스")
             {

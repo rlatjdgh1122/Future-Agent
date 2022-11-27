@@ -11,6 +11,7 @@ public class StageMove : MonoBehaviour
     public GameObject stage2;
     public GameObject stage3;
     public Transform pos;
+
     GameObject player;
 
     private void Start()

@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public TMPro.TextMeshProUGUI CountTxt;
     public TMPro.TextMeshProUGUI txt;
+
+    public Transform bossPos1;
+    public Transform bossPos2;
+    public Transform bossPos3;
+
     public Animator anim;
     public int count;
     static int sum = 0;
@@ -22,14 +27,17 @@ public class GameManager : MonoBehaviour
     {
         CountTxt.text = count.ToString() + "¸¶¸®";
     }
-    public static void BossCount(int i)
+    public void BossCount(int i)
     {
         sum += i;
-        Debug.Log(sum);
-        if (sum % 7 == 0)
+        if (sum == 7)
         {
-            EnemySpawner.Instance.SpawnBoss();
+            EnemySpawner.Instance.SpawnBoss(bossPos1.position);
+        }else if(sum == 17)
+        {
+            EnemySpawner.Instance.SpawnBoss(bossPos2.position);
         }
+        else if(sum == 27) EnemySpawner.Instance.SpawnBoss(bossPos3.position);
     }
     public void BossDie(int i)
     {
