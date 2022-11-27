@@ -138,16 +138,6 @@ public class PlayerController : MonoBehaviour
         {
             movement.Jump();
         }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            movement.isLongJump = true;
-        }
-
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            movement.isLongJump = false;
-        }
     }
 
     public void Dash()

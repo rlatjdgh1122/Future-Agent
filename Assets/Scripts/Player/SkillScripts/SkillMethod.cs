@@ -13,10 +13,13 @@ public class SkillMethod : MonoBehaviour
 
     [SerializeField] GameObject slash;
     [SerializeField] GameObject ball;
-    [SerializeField] Transform SlashRotation; 
+    [SerializeField] Transform SlashRotation;
     [SerializeField] Transform Pos;
     Vector3 dir;
 
+
+    bool isUpDamage = false;
+    bool Up = false;
     [Header("강화할 공격")]
     [SerializeField] AttackSlash attackSlash;
     [SerializeField] SkillBall skillBall;
@@ -61,7 +64,7 @@ public class SkillMethod : MonoBehaviour
     }
     public void Skill5() //모든 스킬 공격력 증가
     {
-        particle.SetActive(true);   
+        particle.SetActive(true);
         StartCoroutine("AttackDamageUp");
     }
     public void Skill6() //체력을 풀피로 채워줌
@@ -73,12 +76,19 @@ public class SkillMethod : MonoBehaviour
     #endregion
     public void Slash()
     {
-        GameObject Slash = Instantiate(slash,Pos.position,SlashRotation.rotation);
+        GameObject Slash = Instantiate(slash, Pos.position, SlashRotation.rotation);
         SlashDestory(Slash);
     }
     public void SlashDestory(GameObject a)
     {
         Destroy(a, 1);
+    }
+
+    public void DamageDown()
+    {
+        attackSlash.Damage -= PlusDamage;
+        skillBall.Damage -= PlusDamage;
+        playerHeavyAttackArea.HeavyAttackDamage -= PlusDamage;
     }
     #region 코루틴
     IEnumerator Heavy_Attack()
@@ -96,6 +106,7 @@ public class SkillMethod : MonoBehaviour
     }
     IEnumerator AttackDamageUp()
     {
+       
         attackSlash.Damage += PlusDamage;
         skillBall.Damage += PlusDamage;
         playerHeavyAttackArea.HeavyAttackDamage += PlusDamage;

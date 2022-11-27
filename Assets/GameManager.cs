@@ -11,9 +11,17 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        StartCoroutine("Text");
     }
-    private void Update()
+   /* private IEnumerator Text()
     {
-        CountTxt.text = count.ToString() +"마리";
-    }
+        while (true)
+        {
+            CountTxt.text = count.ToString() + "마리";
+            if(count % 7 == 0)
+            {
+                
+            }
+        }
+    }*/
 }
