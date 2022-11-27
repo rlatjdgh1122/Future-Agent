@@ -46,6 +46,7 @@ public class SkillMethod : MonoBehaviour
     }
     public void Skill1()//참격을 날림
     {
+        SoundManager.Instace.EffectPlay(12, 0);
         PlayerController.anim.SetTrigger("Slash");
     }
     public void Skill2() //강력한 heavyAttack을 사용함
@@ -65,6 +66,7 @@ public class SkillMethod : MonoBehaviour
     {
         particle.SetActive(true);
         StartCoroutine("AttackDamageUp");
+        SoundManager.Instace.EffectPlay(11, 0);
     }
     public void Skill6() //체력을 풀피로 채워줌
     {

@@ -76,6 +76,8 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     }
     public void Start_Attack1()
     {
+        SoundManager.Instace.EffectPlay(9, 0);
+
         ShakeCamera.Instance.Shake(15, 0.2f);
         attack1.SetActive(true);
     }
@@ -85,6 +87,7 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     }
     public void Start_DownAttack()
     {
+        SoundManager.Instace.EffectPlay(10, 0);
         ShakeCamera.Instance.Shake(30, 0.2f);
         attack2.SetActive(true);
     }

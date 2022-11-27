@@ -24,19 +24,21 @@ public class SoundManager : MonoBehaviour
             if (settingPanel.activeInHierarchy == true)
             {
                 settingPanel.SetActive(false);
+                Time.timeScale = 1;
             }
-            else settingPanel.SetActive(true);
+            else { settingPanel.SetActive(true); Time.timeScale = 0; }
         }
     }
     public void Cancel_Setting()
     {
         Instace.EffectPlay(5, 0);
-
+        Time.timeScale = 1;
         settingPanel.SetActive(false);
     }
     public void Exit_Setting()
     {
         Application.Quit();
+        Time.timeScale = 1;
         settingPanel.SetActive(false);
     }
     public void BG_Volume(float volume)
@@ -66,3 +68,4 @@ public class SoundManager : MonoBehaviour
         skillMethod.DamageDown();
     }
 }
+

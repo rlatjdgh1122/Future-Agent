@@ -38,9 +38,16 @@ public class MoveScenes : MonoBehaviour
         }
         Scene sc = SceneManager.GetActiveScene(); //함수 안에 선언하여 사용한다.
         if (sc.name == "Eesy")
+        {
             SceneManager.LoadScene("Intro");
+            Time.timeScale = 1;
+        }
         if (sc.name == "Intro")
+        {
             SceneManager.LoadScene("Eesy");
+            Time.timeScale = 1;
+
+        }
     }
 
 }

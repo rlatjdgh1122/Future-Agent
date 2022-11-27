@@ -9,6 +9,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject MainMenuPanel;
     [SerializeField] GameObject Player_UI;
     [SerializeField] PlayerController Player;
+    private void Start()
+    {
+        Player.enabled = false;
+    }
     public void skillButton()
     {
         SoundManager.Instace.EffectPlay(5, 0);
