@@ -4,6 +4,7 @@ using UnityEngine;
 using GlobalName;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public delegate float Hit(float damaged);
 public class Health : MonoBehaviour
@@ -135,6 +136,10 @@ public class Health : MonoBehaviour
             anim.SetTrigger("Die");
         }
         return playerHp;
+    }
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     public void PlayerDie()
