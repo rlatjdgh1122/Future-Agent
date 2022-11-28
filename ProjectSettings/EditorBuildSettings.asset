@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Eesy.unity
     guid: 6d981e8f24357df478936a612fcd12be
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 969e65d77a63b5e439df028d6214020f
+  - enabled: 1
+    path: Assets/Scenes/Clear.unity
+    guid: 5c10ec5ebdebd5d49914a5c586e21575
   m_configObjects: {}
