@@ -7,6 +7,9 @@ public class MoveScenes : MonoBehaviour
 {
     //public int nextSceneIndex;
     public GameObject SceneChangeObj;
+    public TMPro.TextMeshProUGUI txt;
+    public Animator anim;
+
     public GameObject Canvas;
     public GameObject scene;
     public GameObject player;
@@ -49,5 +52,9 @@ public class MoveScenes : MonoBehaviour
 
         }
     }
-
+    public void ReSoon()
+    {
+        anim.SetTrigger("IsText");
+        txt.text = "¹Ì¿Ï¼º";
+    }
 }

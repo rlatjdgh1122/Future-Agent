@@ -7,6 +7,10 @@ public class StageMove : MonoBehaviour
     public int Stage;
     public int Stage2_enemtCount = 10;
     public int Stage3_enemtCount = 10;
+
+    public TMPro.TextMeshProUGUI txt;
+    public Animator anim;
+
     public GameObject stage1;
     public GameObject stage2;
     public GameObject stage3;
@@ -37,6 +41,9 @@ public class StageMove : MonoBehaviour
     }
     public void OpenStage2()
     {
+        anim.SetTrigger("IsText");
+        txt.text = "Stage2";
+
         player.transform.position = pos.position;
         stage2.SetActive(true);
 
@@ -45,6 +52,9 @@ public class StageMove : MonoBehaviour
     }
     public void OpenStage3()
     {
+        anim.SetTrigger("IsText");
+        txt.text = "Stage3";
+
         player.transform.position = pos.position;
         stage3.SetActive(true);
 

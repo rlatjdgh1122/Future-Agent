@@ -5,6 +5,7 @@ namespace Assets.Scripts.Enemy
 {
     internal interface IEnemyInterface
     {
+        public void Attack();
         public void Move();
     }
 }

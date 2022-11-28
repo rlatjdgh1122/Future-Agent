@@ -6950,7 +6950,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1514768180}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: EF_Volume
         m_Mode: 0
@@ -7854,6 +7854,8 @@ MonoBehaviour:
   Stage: 2
   Stage2_enemtCount: 10
   Stage3_enemtCount: 10
+  txt: {fileID: 2034469384}
+  anim: {fileID: 2034469383}
   stage1: {fileID: 1095370538}
   stage2: {fileID: 161610358}
   stage3: {fileID: 1934803506}
@@ -9044,6 +9046,8 @@ MonoBehaviour:
   Stage: 1
   Stage2_enemtCount: 10
   Stage3_enemtCount: 10
+  txt: {fileID: 2034469384}
+  anim: {fileID: 2034469383}
   stage1: {fileID: 1095370538}
   stage2: {fileID: 161610358}
   stage3: {fileID: 1934803506}
@@ -11016,7 +11020,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1514768180}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: BG_Volume
         m_Mode: 0
@@ -12105,7 +12109,7 @@ MonoBehaviour:
   - {fileID: 2947355243643814053, guid: 191a906b0166e99468d31f1a0150061c, type: 3}
   enemyCount: 7
   xRange_left: 14
-  xRange_right: 60
+  xRange_right: 55
 --- !u!4 &2141937934
 Transform:
   m_ObjectHideFlags: 0

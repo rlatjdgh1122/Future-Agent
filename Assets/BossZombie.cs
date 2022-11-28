@@ -24,6 +24,10 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     bool isMove;
     void Start()
     {
+        Attack();
+    }
+    public void Attack()
+    {
         isMove = true;
         StartCoroutine(AttackPos());
 

@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public int CountP { get => count; set { count = value; } }
     private void Awake()
     {
-        Time.timeScale = 1;
         Instance = this;
         sum = 0;
     }

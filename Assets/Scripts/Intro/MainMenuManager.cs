@@ -11,6 +11,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] PlayerController Player;
     private void Start()
     {
+        Time.timeScale = 1;
+        Debug.Log("EWQR");
         Player.enabled = false;
     }
     public void skillButton()

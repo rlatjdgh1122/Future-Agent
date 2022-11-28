@@ -62,9 +62,12 @@ public class Health : MonoBehaviour
         enemyHp -= damaged;
         if (enemyHp > 0)
         {
-            GameObject enemyHudText = Instantiate(hudDamageText);
-            enemyHudText.transform.position = hudPos.position;
-            enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
+            if (hudDamageText != null)
+            {
+                GameObject enemyHudText = Instantiate(hudDamageText);
+                enemyHudText.transform.position = hudPos.position;
+                enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
+            }
             //���� ���ϸ��̼� 
             ShakeCamera.Instance.Shake(3, 0.2f);
             bloodParticle.Play();
@@ -82,7 +85,7 @@ public class Health : MonoBehaviour
                 GameManager.Instance.count++;
                 GameManager.Instance.BossCount(1);
             }
-            if(Myname == "보스")
+            if (Myname == "보스")
             {
                 GameManager.Instance.BossDie(1);
             }
