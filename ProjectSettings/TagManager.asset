@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Target
   - Walk
+  - ball
   layers:
   - Default
   - TransparentFX

@@ -244,9 +244,11 @@ MonoBehaviour:
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 8563702680078931341}
   playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 1700
+  Myname: 
 --- !u!198 &8563702681127993786
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5000,6 +5002,8 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+  rigid: {fileID: 0}
   collider2Ds: []
+  player: {fileID: 0}
   PrefabAttack: {fileID: 5611120082248495831, guid: 1cae6886acf0a2b4da340d9a927c5e7b, type: 3}
   PrefabPos: {fileID: 8563702680474852360}

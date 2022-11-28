@@ -15,32 +15,26 @@ public class Zombie : MonoBehaviour
     public Transform boxpos;
     public Vector2 boxSize;
     public LayerMask layer;
-
+    public Rigidbody2D rigid;
     [SerializeField]
     Collider2D[] collider2Ds;
     Animator anim;
-   public Transform player;
+    public Transform player;
 
     bool isMove;
 
-
-    void OnEnable()
-    {
-        isMove = true;
-        StartCoroutine(AttackPos());
-
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        anim = GetComponent<Animator>();
-
-    }
     private void Start()
     {
-        player = GameObject.Find("Player").transform;
+        rigid = GetComponent<Rigidbody2D>();
         RandomSpeed();
     }
     public void RandomSpeed()
     {
+        isMove = true;
         moveSpeed = Random.Range(MinSpeed, MaxSpeed);
+        StartCoroutine(AttackPos());
+        anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     void Update()
     {
@@ -48,7 +42,7 @@ public class Zombie : MonoBehaviour
     }
     public void Move()
     {
-       float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
+        float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
         if (isMove && distance > effectiveRange)
             transform.Translate(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
 

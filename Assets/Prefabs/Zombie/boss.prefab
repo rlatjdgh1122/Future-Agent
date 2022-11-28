@@ -408,7 +408,7 @@ MonoBehaviour:
   playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
-  enemyHp: 1000
+  enemyHp: 100
   Myname: "\uBCF4\uC2A4"
 --- !u!114 &2947355243643814051
 MonoBehaviour:
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28e3ab405f29eed4aaaa2c618c14761e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.9
+  moveSpeed: 1
   AttackDelay: 5
   effectiveRange: 1
   boxpos: {fileID: 2947355241894311352}
@@ -431,6 +431,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   collider2Ds: []
+  player: {fileID: 0}
   attack1: {fileID: 2947355242842553428}
   attack2: {fileID: 2947355242720659408}
 --- !u!95 &2947355243643814052

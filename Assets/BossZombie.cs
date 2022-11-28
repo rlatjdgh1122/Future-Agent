@@ -17,13 +17,14 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     [SerializeField]
     Collider2D[] collider2Ds;
     Animator anim;
-    Transform player;
+    [SerializeField] private GameObject player;
 
     public GameObject attack1;
     public GameObject attack2;
     bool isMove;
     void Start()
     {
+         player = GameObject.Find("Player");
         Attack();
     }
     public void Attack()
@@ -31,7 +32,7 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
         isMove = true;
         StartCoroutine(AttackPos());
 
-        player = GameObject.Find("Player").transform;
+        // Vector3 dir = player.transform.position - transform.position;
         anim = GetComponent<Animator>();
     }
     void Update()
@@ -40,7 +41,7 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     }
     public void Move()
     {
-        float distance = Vector2.Distance(new Vector2(player.position.x, 0), new Vector2(transform.position.x, 0));
+        float distance = Vector2.Distance(new Vector2(player.transform.position.x, 0), new Vector2(transform.position.x, 0));
         if (isMove && distance > effectiveRange)
             transform.Translate(new Vector3(1, 0, 0) * moveSpeed * Time.deltaTime);
 

@@ -17,7 +17,7 @@ public class SkillBall : MonoBehaviour
 
     Collider2D[] colliders;
     [SerializeField] private Vector2 boxSize;
-    [SerializeField] private Transform boxPos;
+    [SerializeField] private GameObject boxPos;
     [SerializeField] private LayerMask layer;
 
     Health health;
@@ -25,7 +25,7 @@ public class SkillBall : MonoBehaviour
 
     private void Awake()
     {
-        boxPos = GameObject.Find("BallPos").transform;
+        boxPos = GameObject.FindGameObjectWithTag("ball");
         Check();
     }
     private void Update()
@@ -34,7 +34,7 @@ public class SkillBall : MonoBehaviour
     }
     public void Check()
     {
-        colliders = Physics2D.OverlapBoxAll(boxPos.position, boxSize, 0, layer);
+        colliders = Physics2D.OverlapBoxAll(boxPos.transform.position, boxSize, 0, layer);
         foreach (Collider2D collider in colliders)
         {
             if (collider.CompareTag("Enemy"))
@@ -45,17 +45,6 @@ public class SkillBall : MonoBehaviour
     public void EnemyKill()
     {
         enemy = GameObject.FindGameObjectWithTag(TagName);
-    }
-    public void KillMove()
-    {
-        try
-        {
-            dir = transform.position - enemy.transform.position;
-
-            transform.position -= dir * speed * Time.deltaTime;
-
-        }
-        catch { Destroy(gameObject); }
     }
     public void Enemy()
     {
@@ -92,9 +81,21 @@ public class SkillBall : MonoBehaviour
             Enemy();
         }
     }
+    public void KillMove()
+    {
+        try
+        {
+            dir = transform.position - enemy.transform.position;
+
+            transform.position -= dir * speed * Time.deltaTime;
+
+        }
+        catch { Destroy(gameObject); }
+    }
+   
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxPos.position, boxSize);
+        Gizmos.DrawWireCube(boxPos.transform.position, boxSize);
     }
 }

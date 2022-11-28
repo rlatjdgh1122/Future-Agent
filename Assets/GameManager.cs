@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour
 
     public Transform bossPos1;
     public Transform bossPos2;
+    public Transform bossPos2_1;
+
     public Transform bossPos3;
+    public Transform bossPos3_1;
+    public Transform bossPos3_2;
 
     public Animator anim;
     public int count;
@@ -30,25 +34,33 @@ public class GameManager : MonoBehaviour
     public void BossCount(int i)
     {
         sum += i;
-        if (sum == 7)
+        if (sum == 15)
         {
             EnemySpawner.Instance.SpawnBoss(bossPos1.position);
-        }else if(sum == 17)
+        }
+        else if (sum == 35)
         {
+            EnemySpawner.Instance.SpawnBoss(bossPos2_1.position);
             EnemySpawner.Instance.SpawnBoss(bossPos2.position);
         }
-        else if(sum == 27) EnemySpawner.Instance.SpawnBoss(bossPos3.position);
+        else if (sum == 65)
+        
+        { 
+            EnemySpawner.Instance.SpawnBoss(bossPos3.position); 
+            EnemySpawner.Instance.SpawnBoss(bossPos3_1.position); 
+            EnemySpawner.Instance.SpawnBoss(bossPos3_2.position); 
+        }
     }
     public void BossDie(int i)
     {
         bossDieCount += i;
-        if(bossDieCount == 1)
+        if (bossDieCount == 1)
         {
             anim.SetTrigger("IsText");
             txt.text = "stage1 클리어!";
             StageExit[0].SetActive(true);
         }
-        if(bossDieCount == 2)
+        if (bossDieCount == 3)
         {
             anim.SetTrigger("IsText");
             txt.text = "stage2 클리어!";

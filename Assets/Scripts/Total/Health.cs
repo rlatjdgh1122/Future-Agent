@@ -77,6 +77,12 @@ public class Health : MonoBehaviour
         {
             //���� �ִϸ��̼�
             //������ ����
+            if (hudDamageText != null)
+            {
+                GameObject enemyHudText = Instantiate(hudDamageText);
+                enemyHudText.transform.position = hudPos.position;
+                enemyHudText.GetComponent<DamageText>().damage = (int)damaged;
+            }
             SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);
 
@@ -116,6 +122,10 @@ public class Health : MonoBehaviour
         {
             //���� �ִϸ��̼�
             //������ ����
+            GameObject playerHudText = Instantiate(hudDamageText);
+            playerHudText.transform.position = hudPos.position;
+            playerHudText.GetComponent<DamageText>().damage = (int)damaged;
+
             Physics2D.IgnoreLayerCollision(7, 8, true);
             SoundManager.Instace.EffectPlay(3, 0);
             ShakeCamera.Instance.Shake(3, 0.2f);

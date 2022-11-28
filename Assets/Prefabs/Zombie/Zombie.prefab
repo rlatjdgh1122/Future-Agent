@@ -163,7 +163,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
@@ -195,9 +195,12 @@ MonoBehaviour:
   PlayerHpSlider: {fileID: 0}
   hudDamageText: {fileID: 499003543812039781, guid: 7924cb96e27b4b74ea62ce0be2f8100f, type: 3}
   hudPos: {fileID: 1154476907857157038}
+  playerController: {fileID: 0}
+  playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
   enemyHp: 2500
+  Myname: 
 --- !u!198 &1154476908102607910
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4951,7 +4954,9 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+  rigid: {fileID: 1154476908102607909}
   collider2Ds: []
+  player: {fileID: 0}
 --- !u!1 &1154476909208319695
 GameObject:
   m_ObjectHideFlags: 0
@@ -5039,7 +5044,7 @@ MonoBehaviour:
   Setstat: {fileID: 0}
   defaultDamage: 0
   name: 0
-  EnemyDamage: 10
+  EnemyDamage: 100
 --- !u!1 &1154476909672989811
 GameObject:
   m_ObjectHideFlags: 0
