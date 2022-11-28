@@ -140,4 +140,11 @@ public class PlayerSkillController : MonoBehaviour
         }
         yield break;
     }
+    public void resetBlind()
+    {
+        for(int i  = 0; i < blind.Length; i++)
+        {
+            blind[i].fillAmount = 0;
+        }
+    }
 }

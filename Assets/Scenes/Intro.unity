@@ -33425,6 +33425,7 @@ MonoBehaviour:
   - {fileID: 614983582}
   - {fileID: 2043495519}
   - {fileID: 1210051813}
+  skillMethod: {fileID: 1838354716}
 --- !u!4 &1239753592
 Transform:
   m_ObjectHideFlags: 0
@@ -57262,6 +57263,7 @@ MonoBehaviour:
   playerHeavyAttackArea: {fileID: 711003742}
   Setstat: {fileID: 11400000, guid: a2abdfb2aac4a87429f17aaba163fced, type: 2}
   PlusDamage: 300
+  isUpDamage: 0
   Slash_CastTime: 5
   AttackUp_CastTime: 10
   Cancel_DashCoolTime: 3

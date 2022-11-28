@@ -6,9 +6,6 @@ using UnityEngine.Events;
 public class SkillMethod : MonoBehaviour
 {
     PlayerController playerController;
-
-
-
     [SerializeField] GameObject particle;
 
     [SerializeField] GameObject slash;
@@ -25,6 +22,7 @@ public class SkillMethod : MonoBehaviour
     [SerializeField] stat Setstat;
     public float PlusDamage;
 
+    public bool isUpDamage;
     [Header("시전 시간")]
     public float Slash_CastTime = 10;
     public float AttackUp_CastTime = 5;
@@ -114,6 +112,7 @@ public class SkillMethod : MonoBehaviour
         playerHeavyAttackArea.HeavyAttackDamage += PlusDamage;
         Setstat.damage += PlusDamage;
 
+        isUpDamage = true;
         yield return new WaitForSeconds(AttackUp_CastTime);
 
         particle.SetActive(false);
@@ -122,6 +121,8 @@ public class SkillMethod : MonoBehaviour
         skillBall.Damage -= PlusDamage;
         playerHeavyAttackArea.HeavyAttackDamage -= PlusDamage;
         Setstat.damage -= PlusDamage;
+
+        isUpDamage = false;
     }
     #endregion
 }

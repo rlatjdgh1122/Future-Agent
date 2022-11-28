@@ -65,7 +65,8 @@ public class SoundManager : MonoBehaviour
         SkillMethod skillMethod = a.GetComponent<SkillMethod>();
         Destroy(a);
         SceneManager.LoadScene("Intro");
-        skillMethod.DamageDown();
+        if (skillMethod.isUpDamage)
+            skillMethod.DamageDown();
     }
 }
 

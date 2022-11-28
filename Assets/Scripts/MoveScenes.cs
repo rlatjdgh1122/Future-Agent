@@ -15,6 +15,8 @@ public class MoveScenes : MonoBehaviour
     public GameObject player;
     public GameObject[] SetActivesgameObjects;
     int count;
+
+    public SkillMethod skillMethod;
     public void MoveScene()
     {
         player.transform.position = new Vector3(-5, -3.0417316f, 0);
@@ -40,15 +42,14 @@ public class MoveScenes : MonoBehaviour
             Destroy(scene);
         }
         Scene sc = SceneManager.GetActiveScene(); //함수 안에 선언하여 사용한다.
-        if (sc.name == "Eesy")
-        {
-            SceneManager.LoadScene("Intro");
-            Time.timeScale = 1;
-        }
         if (sc.name == "Intro")
         {
             SceneManager.LoadScene("Eesy");
+            PlayerSkillController.Instance.coolTimes.ForEach(p => p.Skill_Time = p.Skill_CoolTime);
+            PlayerSkillController.Instance.resetBlind();
             Time.timeScale = 1;
+            if (skillMethod.isUpDamage)
+                skillMethod.DamageDown();
 
         }
     }
