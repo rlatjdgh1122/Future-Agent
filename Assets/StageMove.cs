@@ -10,6 +10,9 @@ public class StageMove : MonoBehaviour
     public GameObject stage1;
     public GameObject stage2;
     public GameObject stage3;
+    public GameObject Back1;
+    public GameObject Back2;
+    public GameObject Back3;
     public Transform pos;
 
     GameObject player;
@@ -39,16 +42,22 @@ public class StageMove : MonoBehaviour
     {
         player.transform.position = pos.position;
         stage2.SetActive(true);
+        Back2.SetActive(true);
 
         stage1.SetActive(false);
         stage3.SetActive(false);
+        Back1.SetActive(false);
+        Back3.SetActive(false);
     }
     public void OpenStage3()
     {
         player.transform.position = pos.position;
         stage3.SetActive(true);
+        Back3.SetActive(true);
 
         stage1.SetActive(false);
         stage2.SetActive(false);
+        Back1.SetActive(false);
+        Back2.SetActive(false);
     }
 }
