@@ -12,7 +12,6 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
-        Debug.Log("EWQR");
         Player.enabled = false;
     }
     public void skillButton()

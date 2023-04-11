@@ -24,7 +24,7 @@ public class BossZombie : MonoBehaviour, IEnemyInterface
     bool isMove;
     void Start()
     {
-         player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         Attack();
     }
     public void Attack()

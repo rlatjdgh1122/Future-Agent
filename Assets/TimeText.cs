@@ -22,6 +22,8 @@ public class TimeText : MonoBehaviour
         {
             SetTimer();
         }
+        PlayerPrefs.SetInt("Min",Minit);
+        PlayerPrefs.SetFloat("Sec",Second);
     }
 
 

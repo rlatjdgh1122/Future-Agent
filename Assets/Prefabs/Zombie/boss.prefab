@@ -125,7 +125,7 @@ MonoBehaviour:
   Setstat: {fileID: 0}
   defaultDamage: 0
   name: 0
-  EnemyDamage: 250
+  EnemyDamage: 350
 --- !u!1 &2947355242842553428
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   Setstat: {fileID: 0}
   defaultDamage: 0
   name: 0
-  EnemyDamage: 180
+  EnemyDamage: 300
 --- !u!1 &2947355243461867048
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +383,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 30
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -408,7 +408,7 @@ MonoBehaviour:
   playerSkillController: {fileID: 0}
   name: 0
   playerHp: 0
-  enemyHp: 100
+  enemyHp: 15000
   Myname: "\uBCF4\uC2A4"
 --- !u!114 &2947355243643814051
 MonoBehaviour:
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  AttackDelay: 5
+  AttackDelay: 3
   effectiveRange: 1
   boxpos: {fileID: 2947355241894311352}
   boxSize: {x: 5, y: 3}

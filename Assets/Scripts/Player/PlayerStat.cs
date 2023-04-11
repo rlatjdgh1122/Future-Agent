@@ -30,7 +30,7 @@ public class PlayerStat : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
+/*
         if (rb.velocity.y > 0)
         {
             rb.gravityScale = 1;
@@ -40,8 +40,8 @@ public class PlayerStat : MonoBehaviour
         {
             edgeCollider.offset = new Vector2(0, 0);
         }
-        else { rb.gravityScale = 2; }
-      
+        //else { rb.gravityScale = 2; }*/
+
 
 
         SetColliderPointsFromTrail(trailRenderer, edgeCollider);
@@ -54,7 +54,7 @@ public class PlayerStat : MonoBehaviour
     }
     public void Jump()
     {
-        rb.velocity = Vector2.up * jumpForce;
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
     private void SetColliderPointsFromTrail(TrailRenderer trailRenderer, EdgeCollider2D edgeCollider)
     {

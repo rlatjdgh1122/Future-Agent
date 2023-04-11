@@ -9,6 +9,7 @@ TagManager:
   - Target
   - Walk
   - ball
+  - rotation
   layers:
   - Default
   - TransparentFX

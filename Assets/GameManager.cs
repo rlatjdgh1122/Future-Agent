@@ -66,5 +66,11 @@ public class GameManager : MonoBehaviour
             txt.text = "stage2 클리어!";
             StageExit[1].SetActive(true);
         }
+        if(bossDieCount == 6)
+        {
+            anim.SetTrigger("IsText");
+            txt.text = "stage3 클리어!";
+            StageExit[2].SetActive(true);
+        }
     }
 }

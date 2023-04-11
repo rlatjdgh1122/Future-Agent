@@ -27,7 +27,6 @@ public class MoveScenes : MonoBehaviour
         if (GameObject.Find("Player"))
         {
             count++;
-            Debug.Log(count);
         }
         if (count == 1)
         {

@@ -7,6 +7,7 @@ using TMPro;
 
 public class StatManager : MonoBehaviour
 {
+    public Health health;
     public stat Setstat;
     public TextMeshProUGUI StatTxt;
 
@@ -25,10 +26,10 @@ public class StatManager : MonoBehaviour
     public float PlusDashSpeed = 10;
 
     public List<StatSave> StatSaves = new List<StatSave>();
-    public Health health;
 
     private void Start()
     {
+        //PlayerPrefs.DeleteAll();    
         CurrentStat = PlayerPrefs.GetInt("Stat", Stat);
         for (int i = 0; i < StatSaves.Count; i++)
             StatSetting(i);

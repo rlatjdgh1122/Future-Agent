@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: New Stat
   m_EditorClassIdentifier: 
   playerHp: 1000
-  damage: 450
-  speed: 3
-  Dashspeed: 0
+  damage: 0
+  speed: 1
+  Dashspeed: 40
   SetCoolTimes:
   - 5.2
   - 10.2
